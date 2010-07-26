@@ -6,6 +6,12 @@
     <property name="width_request">640</property>
     <property name="height_request">480</property>
     <property name="visible">True</property>
+    <property name="title" translatable="yes">Toast Machine</property>
+    <property name="resizable">False</property>
+    <property name="window_position">center</property>
+    <property name="gravity">center</property>
+    <signal name="destroy" handler="on_window1_destroy"/>
+    <signal name="delete_event" handler="on_window1_delete_event"/>
     <child>
       <widget class="GtkVBox" id="vbox1">
         <property name="visible">True</property>
@@ -39,17 +45,30 @@
           </packing>
         </child>
         <child>
+          <widget class="GtkProgressBar" id="progressbar1">
+            <property name="visible">True</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
           <widget class="GtkHBox" id="hbox1">
             <property name="visible">True</property>
             <child>
               <widget class="GtkHButtonBox" id="hbuttonbox2">
                 <property name="visible">True</property>
+                <property name="layout_style">start</property>
                 <child>
-                  <widget class="GtkButton" id="button1">
-                    <property name="label" translatable="yes">button</property>
+                  <widget class="GtkButton" id="btn_about">
+                    <property name="label">gtk-about</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="use_stock">True</property>
+                    <signal name="clicked" handler="on_btn_about_clicked"/>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
@@ -66,6 +85,7 @@
               <widget class="GtkHButtonBox" id="hbuttonbox1">
                 <property name="visible">True</property>
                 <property name="spacing">6</property>
+                <property name="layout_style">center</property>
                 <child>
                   <widget class="GtkButton" id="button2">
                     <property name="label" translatable="yes">button</property>
@@ -114,12 +134,15 @@
             <child>
               <widget class="GtkHButtonBox" id="hbuttonbox3">
                 <property name="visible">True</property>
+                <property name="layout_style">end</property>
                 <child>
-                  <widget class="GtkButton" id="button5">
-                    <property name="label" translatable="yes">button</property>
+                  <widget class="GtkButton" id="btn_exit">
+                    <property name="label">gtk-quit</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="use_stock">True</property>
+                    <signal name="clicked" handler="on_btn_exit_clicked"/>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
@@ -136,7 +159,7 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">False</property>
-            <property name="position">2</property>
+            <property name="position">3</property>
           </packing>
         </child>
       </widget>

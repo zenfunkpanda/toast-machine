@@ -34,3 +34,41 @@ def getPath(key, append = ''):
 def get_app_logo():
   "Returns the path of the icon logo"
   return getPath('icons', '%s.png' % APP_NAME)
+
+
+### --- This Class helps to check the current user's password due to
+###    the need to ask the current user his password to shutdown the application
+class passwordChecker:
+    def __init__(self):
+        self.service = 'passwd'
+        self.user = os.popen("whoami").readlines()[0][:-1]
+
+    def pam_conv(self, auth, query_list, userData):
+        resp = []
+        for i in range(len(query_list)):
+            query, type = query_list[i]
+            if type == PAM.PAM_PROMPT_ECHO_ON:            
+                resp.append((self.user, 0))
+            elif type == PAM.PAM_PROMPT_ECHO_OFF:
+                resp.append((gksu2.ask_password(), 0))
+            elif type == PAM.PAM_PROMPT_ERROR_MSG or type == PAM.PAM_PROMPT_TEXT_INFO:
+                print query
+                resp.append(('', 0))
+            else:
+                return None
+        return resp
+
+    def check(self):
+        auth = PAM.pam()
+        auth.start(self.service)
+        auth.set_item(PAM.PAM_USER, self.user)
+        auth.set_item(PAM.PAM_CONV, self.pam_conv)
+        try:
+            auth.authenticate()
+            auth.acct_mgmt()
+        except PAM.error, resp:
+            return 'error'
+        except:
+            return 'panic'
+        else:
+            return 'ok'

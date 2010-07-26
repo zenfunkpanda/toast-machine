@@ -137,9 +137,10 @@ class toastMachineConfUI:
 		paths = self.config.getPaths()
 		tmp = self.selectDir()
 		if tmp != None:
-			paths.append(tmp)
+			paths.append(tmp+"/")
 		self.config.setPaths(paths)
 		self.dirtree.set_model(self.config.getDirListForTreeView())
+		self.filetree.set_model(self.config.getListForTreeView())		
 	
 	def btn_del(self, widget):
 		model, row = self.dirtree.get_selection().get_selected()
@@ -149,7 +150,7 @@ class toastMachineConfUI:
 			paths.remove(path)
 			self.config.setPaths(paths)
 			self.dirtree.set_model(self.config.getDirListForTreeView())
-			
+			self.filetree.set_model(self.config.getListForTreeView())			
 
 	def btn_save(self, widget):
 		self.config.commit()

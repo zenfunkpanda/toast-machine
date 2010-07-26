@@ -61,18 +61,23 @@ class toastConfigurator:
 	
 	### --- Get paths from config string and convert into an array
 	def getPaths(self):
-		print len(self.config.get("toastMachine","path"))
 		tmp = []
-		for item in self.config.get("toastMachine","path").split(":"):
-			if not item.endswith("/"):
-				item = item + "/"
-			tmp.append(item)
+		if not self.config.get("toastMachine","path") == "":
+			for item in self.config.get("toastMachine","path").split(":"):
+				if not item.endswith("/"):
+					item = item + "/"
+					tmp.append(item)
+				else:
+					tmp.append(item)
+			print tmp
 		return tmp
+
 	
 	### --- Convert an array of paths into a configuration string and commit it
 	def setPaths(self, dirArray):
 		tmp = ":".join(dirArray)
 		self.config.set("toastMachine","path",tmp)
+		self.createDesc()
 		self.commit()
 	
 	### --- Search for ISOs and return a list from the self.getPaths()
@@ -111,7 +116,7 @@ class toastConfigurator:
 	def getDirListForTreeView(self):
 		tmp = gtk.TreeStore(str)
 		for item in self.getPaths():
-			tmp.append(None, [item])#[item.split("/")[-1], item.split("/")[-1] ])
+			tmp.append(None, [item])
 		return tmp
 	
 	### --- Return a Valid list for gtkTreeView with description (for config UI)

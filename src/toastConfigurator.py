@@ -49,8 +49,6 @@ class toastConfigurator:
 			tmp.close()
 			
 		self.config.read(self.configFile)
-		# temporary sanity check
-		self.setPaths()
 		self.createDesc()
 
 	### --- Commit changes to the config file
@@ -63,6 +61,7 @@ class toastConfigurator:
 	
 	### --- Get paths from config string and convert into an array
 	def getPaths(self):
+		print len(self.config.get("toastMachine","path"))
 		tmp = []
 		for item in self.config.get("toastMachine","path").split(":"):
 			if not item.endswith("/"):
@@ -71,13 +70,9 @@ class toastConfigurator:
 		return tmp
 	
 	### --- Convert an array of paths into a configuration string and commit it
-	###     Used for a sanity check on configuration grammar
-	### TODO: modify it to take an array of paths instead of self.getPaths in order to add/remove paths from gui
-	def setPaths(self):
-		tmp = ""
-		for item in self.getPaths():
-			tmp = tmp + item + ":"
-		self.config.set("toastMachine","path",tmp[:-1])
+	def setPaths(self, dirArray):
+		tmp = ":".join(dirArray)
+		self.config.set("toastMachine","path",tmp)
 		self.commit()
 	
 	### --- Search for ISOs and return a list from the self.getPaths()

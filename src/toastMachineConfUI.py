@@ -99,8 +99,6 @@ class toastMachineConfUI:
 		
 		self.entryDesc = self.wTree.get_widget("entryDesc")
 		
-		gtk.main()
-
 	def selectDir(self):
 		dialog = gtk.FileChooserDialog("Seleziona Percorso",
                                None,
@@ -136,13 +134,22 @@ class toastMachineConfUI:
 	
 	def btn_add(self, widget):
 		print "add dir"
-		print self.selectDir()
+		paths = self.config.getPaths()
+		tmp = self.selectDir()
+		if tmp != None:
+			paths.append(tmp)
+		self.config.setPaths(paths)
+		self.dirtree.set_model(self.config.getDirListForTreeView())
 	
 	def btn_del(self, widget):
 		model, row = self.dirtree.get_selection().get_selected()
 		if row != None:
-			desc = model.get_value(row,0)
-			print desc
+			path = model.get_value(row,0)
+			paths = self.config.getPaths()
+			paths.remove(path)
+			self.config.setPaths(paths)
+			self.dirtree.set_model(self.config.getDirListForTreeView())
+			
 
 	def btn_save(self, widget):
 		self.config.commit()
@@ -155,7 +162,10 @@ class toastMachineConfUI:
 	def delete_event(self, widget, event):
 		print "TODO: Add confirmation"
 		return True
-
+	
+	def run(self):
+		gtk.main()
+	
 	def quit(self, widget):
 		sys.exit(0)
 

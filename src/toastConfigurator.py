@@ -64,12 +64,11 @@ class toastConfigurator:
 		tmp = []
 		if not self.config.get("toastMachine","path") == "":
 			for item in self.config.get("toastMachine","path").split(":"):
-				if not item.endswith("/"):
+				if not item.endswith("/") and len(item) > 1:
 					item = item + "/"
 					tmp.append(item)
 				else:
 					tmp.append(item)
-			print tmp
 		return tmp
 
 	

@@ -137,7 +137,11 @@ class toastMachineConfUI:
 		paths = self.config.getPaths()
 		tmp = self.selectDir()
 		if tmp != None:
-			paths.append(tmp+"/")
+			if tmp == "/":
+				paths.append(tmp)
+			else:
+				paths.append(tmp+"/")
+				print paths
 		self.config.setPaths(paths)
 		self.dirtree.set_model(self.config.getDirListForTreeView())
 		self.filetree.set_model(self.config.getListForTreeView())		

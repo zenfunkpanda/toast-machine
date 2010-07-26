@@ -2,6 +2,7 @@ import os
 import sys
 
 __base_path__ = os.path.dirname(os.path.abspath(__file__))
+
 APP_NAME = 'toast-machine'
 APP_TITLE = 'Toast Machine'
 APP_VERSION = '0.1'

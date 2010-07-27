@@ -1,24 +1,26 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# This file is part of the Toast Machine utility.
+##
+#   Project: toast-machine - Self-Service Burning Station  
+#    Author: Giampaolo Bozzali <giampaolo.bozzali@gmail.com>
+# Copyright: 2010 Giampaolo Bozzali
+#   License: GPL-2+
+#  This program is free software; you can redistribute it and/or modify it
+#  under the terms of the GNU General Public License as published by the Free
+#  Software Foundation; either version 2 of the License, or (at your option)
+#  any later version.
 #
-# Copyright(c) 2010 Giampaolo Bozzali <giampaolo.bozzali@gmail.com>
+#  This program is distributed in the hope that it will be useful, but WITHOUT
+#  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+#  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+#  more details.
 #
-# This file may be licensed under the terms of of the
-# GNU General Public License Version 2 (the ``GPL'').
-#
-# Software distributed under the License is distributed
-# on an ``AS IS'' basis, WITHOUT WARRANTY OF ANY KIND, either
-# express or implied. See the GPL for the specific language
-# governing rights and limitations.
-#
-# You should have received a copy of the GPL along with this
-# program. If not, go to http://www.gnu.org/licenses/gpl.html
-# or write to the Free Software Foundation, Inc.,
-# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+# On Debian GNU/Linux systems, the full text of the GNU General Public License
+# can be found in the file /usr/share/common-licenses/GPL-2.
+##
 
-import os, sys
+import sys
 
 import gtk
 import gtk.glade
@@ -70,7 +72,6 @@ class toastMachineUI(object):
 		
 		return
 	
-	### Signal handlers
 	def showAbout(self, widget, data=None):
 		aboutDialog = gtk.AboutDialog()
 		aboutDialog.set_name("Toast Machine")

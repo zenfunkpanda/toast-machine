@@ -1,0 +1,14 @@
+Something about the Toast Machine
+
+About:
+Toast Machine idea is a software to turn a ubuntu box into a self-service distributor of free software by burning ISOs on
+CD/DVD and letting the guest insert his usb portable storage media and copy free software (zip/dmg) on it. For example during a Linux Day you can prepare a Toast Machine (with an old PC capable of burn without freezing) with ISO images and zip/dmg files so guests can view what the Toast Machine offers and take home free software, maybe donating something simbolic to the LUG to pay the blank CD/DVD used.
+
+Runtime dependencies:
+ - brasero
+ - python-gksu2
+ - udisks
+ - python-pam
+
+--
+giampaolo.bozzali@gmail.com

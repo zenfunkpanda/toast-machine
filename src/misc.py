@@ -30,34 +30,54 @@ APP_TITLE = 'Toast Machine'
 APP_VERSION = '0.2'
 
 PATHS = {
-  'locale': [
-    '%s/../po' % __base_path__,
-    '%s/share/locale' % sys.prefix],
-  'ui': [
-    '%s/../data/ui' % __base_path__],
-  'icons': [
-    '%s/../data/icons' % __base_path__],
-  'data': [
-    '%s/../data' % __base_path__],
-  'doc': [
-    '%s/../doc' % __base_path__,
-    '%s/share/doc/%s' % (sys.prefix, APP_NAME)]
+		'locale': [
+			'%s/../po' % __base_path__,
+			'%s/share/locale' % sys.prefix],
+		'ui': [
+			'%s/../data/ui' % __base_path__],
+		'icons': [
+			'%s/../data/icons' % __base_path__],
+		'data': [
+			'%s/../data' % __base_path__],
+		'doc': [
+			'%s/../doc' % __base_path__,
+			'%s/share/doc/%s' % (sys.prefix, APP_NAME)]
 }
 
 def getPath(key, append = ''):
-  "Returns the correct path for the specified key"
-  for path in PATHS[key]:
-    if os.path.isdir(path):
-      if append:
-        return os.path.abspath(os.path.join(path, append))
-      else:
-        return os.path.abspath(path)
+	"Returns the correct path for the specified key"
+	for path in PATHS[key]:
+		if os.path.isdir(path):
+			if append:
+				return os.path.abspath(os.path.join(path, append))
+			else:
+				return os.path.abspath(path)
 
 def get_app_logo():
-  "Returns the path of the icon logo"
-  return getPath('icons', '%s.png' % APP_NAME)
+	"Returns the path of the icon logo"
+	return getPath('icons', '%s.png' % APP_NAME)
 
 
+def humanSizeFile(file):
+	num = os.path.getsize(file)
+	for x in ['bytes','KB','MB','GB','TB']:
+		if num < 1024.0:
+			return "%3.1f%s" % (num, x)
+		num /= 1024.0
+	return 0
+
+def humanSize(num):
+	for x in ['bytes','KB','MB','GB','TB']:
+		if num < 1024.0:
+			return "%3.1f%s" % (num, x)
+		num /= 1024.0
+	return 0
+
+def getPercentile(file,current):
+	return os.path.getsize(file) - current 
+	
+
+'''
 ### --- This Class helps to check the current user's password due to
 ###    the need to ask the current user his password to shutdown the application
 class passwordChecker:
@@ -94,3 +114,4 @@ class passwordChecker:
             return 'panic'
         else:
             return 'ok'
+'''

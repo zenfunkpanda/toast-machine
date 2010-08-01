@@ -23,14 +23,7 @@
 import os
 import gtk
 import ConfigParser
-
-def humanSize(file):
-	num = os.path.getsize(file)
-	for x in ['bytes','KB','MB','GB','TB']:
-		if num < 1024.0:
-			return "%3.1f%s" % (num, x)
-		num /= 1024.0
-	return 0
+import misc
 
 
 class toastConfigurator:
@@ -132,7 +125,7 @@ class toastConfigurator:
 		tmp = gtk.ListStore(str,str,str,str)
 		for item in self.searchISO():
 			desc = "<big><u><b>%s</b></u></big>\n<small>%s (%s)</small>" % \
-				(self.getDesc(item.split("/")[-1]), item.split("/")[-1], humanSize(item))
+				(self.getDesc(item.split("/")[-1]), item.split("/")[-1], misc.humanSizeFile(item))
 			if item.split("/")[-1][-3:].upper() == "DMG":
 				type_id = "dmg"				
 				stockIcon = gtk.STOCK_FLOPPY

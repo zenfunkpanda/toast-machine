@@ -20,7 +20,7 @@
 # can be found in the file /usr/share/common-licenses/GPL-2.
 ##
 
-import sys
+import sys, os, fcntl, select
 
 import gtk
 import gtk.glade
@@ -72,19 +72,34 @@ class toastMachineUI(object):
 		self.td.set_expand(False)
 
 		self.status = self.wTree.get_widget("label1")
+		self.status.set_text("")
 		self.progressbar = self.wTree.get_widget("progressbar1")
 		
 		self.toastMonitor = toastDiskMonitor()
 		gobject.timeout_add (1000,self.toastMonitor.watch)
-		gobject.timeout_add (700,self.idleCheck)
+		gobject.timeout_add (100,self.idleCheck)
 		
-		self.ddprocess = 0
+		self.dd_process = subprocess.Popen(["echo"])
+		self.dd_outfile = None
+		self.dd_outfd = None
+		self.dd_file_flags = None
+		self.dd_file = None
+		
+		self.cp_process = 0
+		self.burn_process = 0
 				
 		return
 	
 	def idleCheck(self):
-		if self.ddprocess != 0:
-			print self.ddprocess.pid
+		if self.dd_process.poll() == None:
+			ready = select.select([self.dd_outfd],[],[],.1)
+			if len(ready[0]) == 0:
+				os.system("kill -USR1 %s" % self.dd_process.pid)
+			else:
+				tmp = self.dd_outfile.readline()[:-1]
+				if len(tmp.split()) > 3:
+					self.progressbar.pulse()
+					self.status.set_text(tmp)
 		return True
 	
 	def showAbout(self, widget, data=None):
@@ -120,8 +135,20 @@ class toastMachineUI(object):
 			print "--> copio %s (%s)" % (file, fileType)	
 	
 	def btn_dd (self, widget):
-		print "ci sto lavorando"
-		self.ddprocess = subprocess.Popen(["dd","if=/dev/zero","of=/dev/null"])
+		self.dd_file = None
+		model, row = self.treeview.get_selection().get_selected()
+		if row != None:
+			self.dd_file = model.get_value(row,1)
+			self.dd_process = subprocess.Popen(
+											["dd", "if="+self.dd_file,"of=/dev/null"],
+											stderr=subprocess.PIPE,
+											stdout=subprocess.PIPE )
+			self.dd_outfile = self.dd_process.stderr
+			self.dd_outfd = self.dd_outfile.fileno()
+			self.dd_file_flags = fcntl.fcntl(self.dd_outfd, fcntl.F_GETFL)
+			fcntl.fcntl(self.dd_outfd, fcntl.F_SETFL, self.dd_file_flags | os.O_NOFOLLOW)
+		return True
+				
 	
 	def btn_exit (self, widget):
 		self.quit()

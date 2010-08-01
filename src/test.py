@@ -3,16 +3,15 @@ import select
 import subprocess
 import fcntl
 
-def humanSize(file):
-	num = file
+def humanSize(bytes):
 	for x in ['bytes','KB','MB','GB','TB']:
-		if num < 1024.0:
-			return "%3.1f%s" % (num, x)
-		num /= 1024.0
+		if bytes < 1024.0:
+			return "%3.1f%s" % (bytes, x)
+		bytes /= 1024.0
 	return 0
 
 
-x = subprocess.Popen(["dd","if=/home/panda/debian.iso","of=/dev/null"], stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+x = subprocess.Popen(["dd","if=/dev/zero","of=/dev/null"], stderr=subprocess.PIPE, stdout=subprocess.PIPE)
 print x.pid
 
 outfile = x.stderr
@@ -28,5 +27,5 @@ while x.poll() == None:
 	else:
 		tmp = outfile.readline()[:-1]
 		if len(tmp.split()) > 3:
-			print tmp, x.poll()
+			print humanSize(tmp)
 	

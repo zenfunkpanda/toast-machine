@@ -75,9 +75,17 @@ class toastMachineUI(object):
 		self.progressbar = self.wTree.get_widget("progressbar1")
 		
 		self.toastMonitor = toastDiskMonitor()
-		gobject.timeout_add (500,self.toastMonitor.watch)
+		gobject.timeout_add (1000,self.toastMonitor.watch)
+		gobject.timeout_add (700,self.idleCheck)
+		
+		self.ddprocess = 0
 				
 		return
+	
+	def idleCheck(self):
+		if self.ddprocess != 0:
+			print self.ddprocess.pid
+		return True
 	
 	def showAbout(self, widget, data=None):
 		aboutDialog = gtk.AboutDialog()
@@ -113,6 +121,7 @@ class toastMachineUI(object):
 	
 	def btn_dd (self, widget):
 		print "ci sto lavorando"
+		self.ddprocess = subprocess.Popen(["dd","if=/dev/zero","of=/dev/null"])
 	
 	def btn_exit (self, widget):
 		self.quit()

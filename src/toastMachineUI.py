@@ -28,8 +28,11 @@ import pygtk
 import gobject
 pygtk.require('2.0')
 
+import subprocess
+
 import misc
 from toastConfigurator import toastConfigurator
+from toastDiskMonitor import toastDiskMonitor
 
 class toastMachineUI(object):
 	def __init__(self):
@@ -71,6 +74,9 @@ class toastMachineUI(object):
 		self.status = self.wTree.get_widget("label1")
 		self.progressbar = self.wTree.get_widget("progressbar1")
 		
+		self.toastMonitor = toastDiskMonitor()
+		gobject.timeout_add (500,self.toastMonitor.watch)
+				
 		return
 	
 	def showAbout(self, widget, data=None):
@@ -106,7 +112,7 @@ class toastMachineUI(object):
 			print "--> copio %s (%s)" % (file, fileType)	
 	
 	def btn_dd (self, widget):
-		print "TODO: TRANSFER"
+		print "ci sto lavorando"
 	
 	def btn_exit (self, widget):
 		self.quit()
@@ -126,5 +132,3 @@ class toastMachineUI(object):
 if __name__ == "__main__":
 	app = toastMachineUI()
 	app.run()
-		
-	

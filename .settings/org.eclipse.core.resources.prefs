@@ -1,6 +1,7 @@
-#Tue Jul 27 02:33:33 CEST 2010
+#Sun Aug 01 18:54:25 CEST 2010
 eclipse.preferences.version=1
 encoding//src/misc.py=utf-8
 encoding//src/toastConfigurator.py=utf-8
+encoding//src/toastDiskMonitor.py=utf-8
 encoding//src/toastMachineConfUI.py=utf-8
 encoding//src/toastMachineUI.py=utf-8

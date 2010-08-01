@@ -27,22 +27,31 @@ class toastDiskMonitor:
 	def __init__ (self):
 		self.lastList = os.popen("udisks --enumerate").readlines()
 		self.lastDevice = None
+		self.availableDevice = None
 	
 	def watch (self):
 		self.newList = os.popen("udisks --enumerate").readlines()
-		removing = (set(self.lastList) - set(self.newList))
+		#removing = (set(self.lastList) - set(self.newList))
 		adding = (set(self.newList) - set(self.lastList))
 		
 		if adding:
 			for device in adding:
 				if device[-2:-1].isdigit():
-					lastDevice = device
-		elif removing:
-			for device in removing:
-				if device[-2:-1].isdigit():
-					print device[:-1]
+					self.lastDevice = device
+		#elif removing:
+		#	for device in removing:
+		#		if device[-2:-1].isdigit():
+		#			print device[:-1]
 		
-		self.lastList = self.newList	
+		if self.lastDevice != None:
+			tmp = "/dev/%s" % self.lastDevice.split("/")[-1:][0][:-1]
+			if os.path.exists(tmp):
+				self.availableDevice = tmp
+			else:
+				self.availableDevice = None
+			
+		self.lastList = self.newList
+		return True
 		
 		
 if __name__ == "__main__":
@@ -50,3 +59,4 @@ if __name__ == "__main__":
 	while 1:
 		time.sleep(3)
 		app.watch()
+		print app.availableDevice

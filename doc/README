@@ -10,5 +10,8 @@ Runtime dependencies:
  - udisks
  - python-pam
 
+Issues:
+ - On Ubuntu the user who runs toast-machine must belong to 'disk' group
+
 --
 giampaolo.bozzali@gmail.com

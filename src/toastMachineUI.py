@@ -42,9 +42,10 @@ class toastMachineUI(object):
 		dic = 	{
 			"on_btn_exit_clicked": self.btn_exit,
 			"on_window1_delete_event": self.delete_event,
-			#"on_window1_destroy": self.quit,
-			#"on_btn_burn_clicked": self.burn,
-			#"on_btn_copy_clicked": self.makeCopy,
+			"on_window1_destroy": self.quit,
+			"on_btn_burn_clicked": self.btn_burn,
+			"on_btn_cp_clicked": self.btn_cp,
+			"on_btn_dd_clicked": self.btn_dd,
 			#"on_treeview1_cursor_changed": self.selectionChanged,
 			"on_btn_about_clicked": self.showAbout,
 		}
@@ -86,6 +87,27 @@ class toastMachineUI(object):
 		aboutDialog.run()
 		aboutDialog.destroy()
 
+	def btn_burn (self, widget):
+		print "TODO: BURN"
+	
+	def btn_cp (self, widget):
+		print "TODO: COPY"
+		file = None
+		fileType = None
+		model, row = self.treeview.get_selection().get_selected()
+		if row != None:
+			file = model.get_value(row,1)
+			fileType = model.get_value(row,2)
+			#if fileType == "zip" or fileType == "dmg":
+			#	print "cp %s %s/" % (file, self.detectedLastPath)
+			#	self.burnprocess = subprocess.Popen(["cp", "-fu", file, self.detectedLastPath])
+			#	self.window.set_sensitive(False)
+		if file != None:
+			print "--> copio %s (%s)" % (file, fileType)	
+	
+	def btn_dd (self, widget):
+		print "TODO: TRANSFER"
+	
 	def btn_exit (self, widget):
 		self.quit()
 		

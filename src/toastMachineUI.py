@@ -29,6 +29,7 @@ import gobject
 pygtk.require('2.0')
 
 import subprocess
+from threading import Thread
 
 import misc
 from toastConfigurator import toastConfigurator
@@ -77,7 +78,7 @@ class toastMachineUI(object):
 		
 		self.toastMonitor = toastDiskMonitor()
 		gobject.timeout_add (1000,self.toastMonitor.watch)
-		gobject.timeout_add (100,self.idleCheck)
+		gobject.timeout_add (150,self.idleCheck)
 		
 		self.dd_process = subprocess.Popen(["echo"])
 		self.dd_outfile = None
@@ -85,12 +86,18 @@ class toastMachineUI(object):
 		self.dd_file_flags = None
 		self.dd_file = None
 		
-		self.cp_process = 0
-		self.burn_process = 0
+		self.cp_process = subprocess.Popen(["echo"])
+		self.burn_process = subprocess.Popen(["echo"])
 				
 		return
 	
 	def idleCheck(self):
+		if self.dd_process.poll() == 0 and self.cp_process.poll() == 0 and self.burn_process.poll() == 0:
+			if self.toastMonitor.availableDevice == None:
+				self.status.set_text("Inserire media")
+			else:
+				self.status.set_text("Media trovato: %s" % self.toastMonitor.availableDevice)
+		
 		if self.dd_process.poll() == None:
 			ready = select.select([self.dd_outfd],[],[],.1)
 			if len(ready[0]) == 0:
@@ -99,23 +106,9 @@ class toastMachineUI(object):
 				tmp = self.dd_outfile.readline()[:-1]
 				if len(tmp.split()) > 3:
 					self.progressbar.pulse()
-					self.status.set_text(tmp)
+					self.progressbar.set_text(tmp)
 		return True
 	
-	def showAbout(self, widget, data=None):
-		aboutDialog = gtk.AboutDialog()
-		aboutDialog.set_name("Toast Machine")
-		aboutDialog.set_version(misc.APP_VERSION)
-		aboutDialog.set_copyright("Copyright © 2010 Giampaolo Bozzali\n" + ("Original Idea by Cremona Linux User Group"))
-		aboutDialog.set_comments("«Burnin' Distros»")
-		aboutDialog.set_logo(gtk.gdk.pixbuf_new_from_file(misc.get_app_logo()))
-		aboutDialog.set_authors(["Giampaolo Bozzali <giampaolo.bozzali@gmail.com>"])
-		aboutDialog.set_website("http://toastmachine.trinhackria.org")
-		aboutDialog.set_license("GNU GPL - General Public License version 2")
-		#aboutDialog.set_translator_credits("http://launchpad.net")
-		aboutDialog.run()
-		aboutDialog.destroy()
-
 	def btn_burn (self, widget):
 		print "TODO: BURN"
 	
@@ -140,15 +133,23 @@ class toastMachineUI(object):
 		if row != None:
 			self.dd_file = model.get_value(row,1)
 			self.dd_process = subprocess.Popen(
-											["dd", "if="+self.dd_file,"of=/dev/null"],
+											["dd", "if="+self.dd_file,"of="+self.toastMonitor.availableDevice[:-1]],
 											stderr=subprocess.PIPE,
 											stdout=subprocess.PIPE )
 			self.dd_outfile = self.dd_process.stderr
 			self.dd_outfd = self.dd_outfile.fileno()
 			self.dd_file_flags = fcntl.fcntl(self.dd_outfd, fcntl.F_GETFL)
 			fcntl.fcntl(self.dd_outfd, fcntl.F_SETFL, self.dd_file_flags | os.O_NOFOLLOW)
+			
+			self.status.set_text("Trasferisco l'immagine bootabile su media")
+			Thread(target=self.ddWait).start()
 		return True
-				
+
+	def ddWait(self):
+		self.dd_process.wait()
+		self.progressbar.set_fraction(0.0)
+		self.progressbar.set_text("finito")
+		self.status.set_text("possibile rimuovere media")				
 	
 	def btn_exit (self, widget):
 		self.quit()
@@ -158,7 +159,21 @@ class toastMachineUI(object):
 		#	return False
 		print "FIXME: delete_event"
 		return True
-	
+
+	def showAbout(self, widget, data=None):
+		aboutDialog = gtk.AboutDialog()
+		aboutDialog.set_name("Toast Machine")
+		aboutDialog.set_version(misc.APP_VERSION)
+		aboutDialog.set_copyright("Copyright © 2010 Giampaolo Bozzali\n" + ("Original Idea by Cremona Linux User Group"))
+		aboutDialog.set_comments("«Burnin' Distros»")
+		aboutDialog.set_logo(gtk.gdk.pixbuf_new_from_file(misc.get_app_logo()))
+		aboutDialog.set_authors(["Giampaolo Bozzali <giampaolo.bozzali@gmail.com>"])
+		aboutDialog.set_website("http://toastmachine.trinhackria.org")
+		aboutDialog.set_license("GNU GPL - General Public License version 2")
+		#aboutDialog.set_translator_credits("http://launchpad.net")
+		aboutDialog.run()
+		aboutDialog.destroy()	
+
 	def run(self):
 		gtk.main()
 		

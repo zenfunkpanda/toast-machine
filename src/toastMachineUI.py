@@ -50,12 +50,19 @@ class toastMachineUI(object):
 			"on_btn_burn_clicked": self.btn_burn,
 			"on_btn_cp_clicked": self.btn_cp,
 			"on_btn_dd_clicked": self.btn_dd,
-			#"on_treeview1_cursor_changed": self.selectionChanged,
+			"on_treeview1_cursor_changed": self.selectionChanged,
 			"on_btn_about_clicked": self.showAbout,
 		}
 		self.wTree.signal_autoconnect( dic )
 		
 		self.window = self.wTree.get_widget("window1")
+		
+		self.ui_btn_burn = self.wTree.get_widget("btn_burn")
+		self.ui_btn_burn.set_sensitive(False)
+		self.ui_btn_dd = self.wTree.get_widget("btn_dd")
+		self.ui_btn_dd.set_sensitive(False)
+		self.ui_btn_cp = self.wTree.get_widget("btn_cp")
+		self.ui_btn_cp.set_sensitive(False)
 		
 		self.treeview = self.wTree.get_widget("treeview1")
 		self.treeview.set_model(self.config.getListForTreeViewTM())
@@ -90,13 +97,32 @@ class toastMachineUI(object):
 		self.burn_process = subprocess.Popen(["echo"])
 				
 		return
+
+	def selectionChanged(self, widget):
+		model, row = self.treeview.get_selection().get_selected()
+		if row != None:
+			file = model.get_value(row,0)
+			fileType = model.get_value(row,2)
+			if fileType == "iso":
+				self.ui_btn_burn.set_sensitive(True)
+				self.ui_btn_dd.set_sensitive(False)
+				self.ui_btn_cp.set_sensitive(True)
+			elif fileType == "img":
+				self.ui_btn_burn.set_sensitive(False)
+				self.ui_btn_dd.set_sensitive(True)
+				self.ui_btn_cp.set_sensitive(True)
+			elif fileType == "zip" or fileType == "dmg":
+				self.ui_btn_burn.set_sensitive(False)
+				self.ui_btn_dd.set_sensitive(False)
+				self.ui_btn_cp.set_sensitive(True)
 	
 	def idleCheck(self):
 		if self.dd_process.poll() == 0 and self.cp_process.poll() == 0 and self.burn_process.poll() == 0:
 			if self.toastMonitor.availableDevice == None:
 				self.status.set_text("Inserire media")
+				self.progressbar.set_text("")
 			else:
-				self.status.set_text("Media trovato: %s" % self.toastMonitor.availableDevice)
+				self.status.set_text("Media corrente: %s" % self.toastMonitor.availableDevice)
 		
 		if self.dd_process.poll() == None:
 			ready = select.select([self.dd_outfd],[],[],.1)
@@ -132,6 +158,8 @@ class toastMachineUI(object):
 		model, row = self.treeview.get_selection().get_selected()
 		if row != None:
 			self.dd_file = model.get_value(row,1)
+			if self.toastMonitor.availableDevice == None:
+				return
 			self.dd_process = subprocess.Popen(
 											["dd", "if="+self.dd_file,"of="+self.toastMonitor.availableDevice[:-1]],
 											stderr=subprocess.PIPE,
@@ -148,8 +176,8 @@ class toastMachineUI(object):
 	def ddWait(self):
 		self.dd_process.wait()
 		self.progressbar.set_fraction(0.0)
-		self.progressbar.set_text("finito")
-		self.status.set_text("possibile rimuovere media")				
+		self.progressbar.set_text("possibile rimuovere media")
+		#self.status.set_text("possibile rimuovere media")				
 	
 	def btn_exit (self, widget):
 		self.quit()

@@ -85,7 +85,7 @@ class toastMachineUI(object):
 		
 		self.toastMonitor = toastDiskMonitor()
 		gobject.timeout_add (1000,self.toastMonitor.watch)
-		gobject.timeout_add (150,self.idleCheck)
+		gobject.timeout_add (100,self.idleCheck)
 		
 		self.dd_process = subprocess.Popen(["echo"])
 		self.dd_outfile = None
@@ -119,10 +119,10 @@ class toastMachineUI(object):
 	def idleCheck(self):
 		if self.dd_process.poll() == 0 and self.cp_process.poll() == 0 and self.burn_process.poll() == 0:
 			if self.toastMonitor.availableDevice == None:
-				self.status.set_text("Inserire media")
+				self.status.set_text("Inserire supporto removibile")
 				self.progressbar.set_text("")
 			else:
-				self.status.set_text("Media corrente: %s" % self.toastMonitor.availableDevice)
+				self.status.set_text("Supporto corrente: %s" % self.toastMonitor.availableDevice)
 		
 		if self.dd_process.poll() == None:
 			ready = select.select([self.dd_outfd],[],[],.1)
@@ -139,19 +139,24 @@ class toastMachineUI(object):
 		print "TODO: BURN"
 	
 	def btn_cp (self, widget):
-		print "TODO: COPY"
 		file = None
-		fileType = None
+		#fileType = None
 		model, row = self.treeview.get_selection().get_selected()
 		if row != None:
 			file = model.get_value(row,1)
-			fileType = model.get_value(row,2)
-			#if fileType == "zip" or fileType == "dmg":
-			#	print "cp %s %s/" % (file, self.detectedLastPath)
-			#	self.burnprocess = subprocess.Popen(["cp", "-fu", file, self.detectedLastPath])
-			#	self.window.set_sensitive(False)
-		if file != None:
-			print "--> copio %s (%s)" % (file, fileType)	
+			if self.toastMonitor.availableDevice != None:
+				if not self.toastMonitor.isMounted():
+					print "è da montare"
+					self.toastMonitor.mount()
+					print "montato"
+				if self.toastMonitor.isMounted():
+					print "TODO: copia effettiva"
+					print self.toastMonitor.isWritable()
+					if self.toastMonitor.isWritable():
+						os.system('cp "%s" "%s/"' % (file, self.toastMonitor.availableMountPoint))
+					else:
+						self.progressbar.set_text("File System in sola lettura :(")
+						self.toastMonitor.unmount()
 	
 	def btn_dd (self, widget):
 		self.dd_file = None
@@ -159,7 +164,12 @@ class toastMachineUI(object):
 		if row != None:
 			self.dd_file = model.get_value(row,1)
 			if self.toastMonitor.availableDevice == None:
+				print "No media found."
 				return
+			
+			if self.toastMonitor.isMounted():
+				self.toastMonitor.unmount()
+			
 			self.dd_process = subprocess.Popen(
 											["dd", "if="+self.dd_file,"of="+self.toastMonitor.availableDevice[:-1]],
 											stderr=subprocess.PIPE,
@@ -169,15 +179,14 @@ class toastMachineUI(object):
 			self.dd_file_flags = fcntl.fcntl(self.dd_outfd, fcntl.F_GETFL)
 			fcntl.fcntl(self.dd_outfd, fcntl.F_SETFL, self.dd_file_flags | os.O_NOFOLLOW)
 			
-			self.status.set_text("Trasferisco l'immagine bootabile su media")
+			self.status.set_text("Trasferisco l'immagine bootabile sul supporto")
 			Thread(target=self.ddWait).start()
 		return True
 
 	def ddWait(self):
 		self.dd_process.wait()
 		self.progressbar.set_fraction(0.0)
-		self.progressbar.set_text("possibile rimuovere media")
-		#self.status.set_text("possibile rimuovere media")				
+		self.progressbar.set_text("Terminato: è possibile rimuovere il supporto")			
 	
 	def btn_exit (self, widget):
 		self.quit()

@@ -152,8 +152,10 @@ class toastMachineUI(object):
 				if self.toastMonitor.isMounted():
 					print "TODO: copia effettiva"
 					print self.toastMonitor.isWritable()
-					if self.toastMonitor.isWritable():
-						os.system('cp "%s" "%s/"' % (file, self.toastMonitor.availableMountPoint))
+					# FIXME: fix toastMonitor.isWeitable() that isn't working well (need 'not')
+					if not self.toastMonitor.isWritable():
+						# TODO: handling percentage during copy
+						os.system('echo cp "%s" "%s/"' % (file, self.toastMonitor.availableMountPoint))
 					else:
 						self.progressbar.set_text("File System in sola lettura :(")
 						self.toastMonitor.unmount()

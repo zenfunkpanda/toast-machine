@@ -1,9 +1,5 @@
 #!/bin/bash
-POTFILE="new/toast-machine.pot"
-if ! [ -d new ]
-then
-  mkdir new
-fi
+POTFILE="toast-machine.pot"
 
 if [ -f ../data/ui/*.glade.h ]
 then

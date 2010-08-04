@@ -1,0 +1,68 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-08-04 17:33+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../data/ui/toast-machine-conf.glade.h:1
+msgid "Descrizione"
+msgstr ""
+
+#: ../data/ui/toast-machine-conf.glade.h:2
+msgid "Toast Machine - Configurazione"
+msgstr ""
+
+#: ../data/ui/toast-machine.glade.h:1
+msgid "Copia"
+msgstr ""
+
+#: ../data/ui/toast-machine.glade.h:2
+msgid ""
+"Copia l'archivio compresso o l'immagine disco selezionata\n"
+"su un supporto rimovibile USB/SD\n"
+"\n"
+"Il contenuto del supporto non verr&#xE0; alterato"
+msgstr ""
+
+#: ../data/ui/toast-machine.glade.h:6
+msgid "Masterizza"
+msgstr ""
+
+#: ../data/ui/toast-machine.glade.h:7
+msgid ""
+"Masterizza l'immagine ISO selezionata su supporto ottico.\n"
+"\n"
+"Se il disco &#xE8; riscrivibile verr&#xE0; prima cancellato"
+msgstr ""
+
+#: ../data/ui/toast-machine.glade.h:10
+msgid "Toast Machine"
+msgstr ""
+
+#: ../data/ui/toast-machine.glade.h:11
+msgid ""
+"Trasferisce l'immagine disco avviabile selezionata\n"
+"su un supporto removibile USB/SD.\n"
+"\n"
+"Tutto il contenuto del supporto andr&#xE0; perso"
+msgstr ""
+
+#: ../data/ui/toast-machine.glade.h:15
+msgid "Trasferisci"
+msgstr ""
+
+#: ../data/ui/toast-machine.glade.h:16
+msgid "label"
+msgstr ""

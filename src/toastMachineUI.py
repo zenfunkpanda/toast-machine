@@ -97,6 +97,8 @@ class toastMachineUI(object):
 		self.dd_file = None
 		
 		self.cp_process = subprocess.Popen(["echo"])
+		self.cp_file = None
+		
 		self.burn_process = subprocess.Popen(["echo"])
 				
 		return
@@ -136,32 +138,36 @@ class toastMachineUI(object):
 				if len(tmp.split()) > 3:
 					self.progressbar.pulse()
 					self.progressbar.set_text(tmp)
+		
+		if self.cp_process.poll() == None:
+			print "TODO: cercare di aggiornare lo stato dell'operazione"
+		
 		return True
 	
 	def btn_burn (self, widget):
 		print "TODO: burning stuff"
 	
 	def btn_cp (self, widget):
-		file = None
+		self.cp_file = None
 		model, row = self.treeview.get_selection().get_selected()
 		if row != None:
-			file = model.get_value(row,1)
-			if self.toastMonitor.availableDevice != None:
-				if not self.toastMonitor.isMounted():
-					print "DEBUG: %s è da montare" % self.toastMonitor.availableDevice
-					self.toastMonitor.mount()
-					print "DEBUG: %s è già montato" % self.toastMonitor.availableDevice
-				if self.toastMonitor.isMounted():
-					print "FIXME: copia effettiva"
-					print self.toastMonitor.isWritable()
-					# FIXME: fix toastMonitor.isWeitable() that isn't working well (need 'not')
-					if not self.toastMonitor.isWritable():
-						# TODO: handling percentage during copy
-						os.system('echo cp "%s" "%s/"' % (file, self.toastMonitor.availableMountPoint))
-					else:
-						self.progressbar.set_text(_("Il supporto non è scribile. Rimuoverlo"))
-						print "DEBUG: %s è un filesystem in sola lettura. Lo smonto" % self.toastMonitor.availableDevice
-						self.toastMonitor.unmount()
+			self.cp_file = model.get_value(row,1)
+			if self.toastMonitor.availableDevice == None:
+				print "DEBUG: Nessun supporto rilevato"
+				return
+			
+			if not self.toastMonitor.isMounted():
+				self.toastMonitor.mount()
+			
+			self.cp_process = subprocess.Popen(["cp", self.cp_file, self.toastMonitor.availableMountPoint + "/"])
+			self.status.set_text(_("Copio il file selezionato sul supporto"))
+	
+	def cpWait	(self):
+		self.cp_process.wait()
+		self.progressbar.set_fraction(0.0)
+		self.progressbar.set_text("Terminato: è possibile rimuovere il supporto")
+		print "TODO: ask for a second operation or unmount"
+		Thread(target=self.cpWait).start()
 	
 	def btn_dd (self, widget):
 		self.dd_file = None

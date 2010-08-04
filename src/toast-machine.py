@@ -21,6 +21,7 @@
 ##
 
 import os, sys
+import locale
 import gettext
 import gtk.glade
 import misc
@@ -29,9 +30,9 @@ from toastMachineUI import toastMachineUI
 from toastMachineConfUI import toastMachineConfUI
 
 if __name__ == '__main__':
-  for module in (gettext, gtk.glade):
-    module.bindtextdomain(misc.APP_NAME, misc.getPath('locale'))
-    module.textdomain(misc.APP_NAME)
-
-  main = toastMachineConfUI()
-  main.run()
+	for module in (gettext, gtk.glade):
+		module.bindtextdomain(misc.APP_NAME, misc.getPath('locale'))
+		module.textdomain(misc.APP_NAME)
+		
+	main = toastMachineUI()
+	main.run()

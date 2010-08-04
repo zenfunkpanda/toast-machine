@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Toast Machine
+Comment=The Toast Machine
+Exec=toast-machine
+TryExec=toast-machine
+Icon=toastmachine
+Type=Application
+X-Ubuntu-Gettext-Domain=gdm
+X-Ubuntu-Gettext-Domain=gdm

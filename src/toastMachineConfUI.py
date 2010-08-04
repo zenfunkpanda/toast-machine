@@ -20,48 +20,17 @@
 # can be found in the file /usr/share/common-licenses/GPL-2.
 ##
 
-### --- Import base libraries
-import sys, os, time
-import subprocess
+import sys
 
-### --- Import and set localization libraries
-import locale
-import gettext
+import gtk
+import gtk.glade
+import pygtk
+pygtk.require('2.0')
 
-locale.setlocale(locale.LC_ALL, '')
-gettext.bindtextdomain("toastMachine", "/usr/share/locale")
-gettext.textdomain("toastMachine")
-_ = gettext.gettext
+from gettext import gettext as _
 
-### --- Import gtk/glade libraries
-try:  
-	import pygtk  
-	pygtk.require("2.0")  
-except:  
-	pass  
-try:
-	import gobject
-	import gtk  
-	import gtk.glade  
-except:  
-	print ("pyGTK Not Availible")
-	sys.exit(1)
-	
-### --- Import custom classes
-from toastConfigurator import toastConfigurator
 import misc
-
-try:
-	import PAM
-except:
-	print _("Need python-pam !")
-
-try:
-	import gksu2
-except:
-	print _("Need python-gksu2 !")
-
-
+from toastConfigurator import toastConfigurator
 
 ### --- The Configuration GUI.
 class toastMachineConfUI:
@@ -124,14 +93,14 @@ class toastMachineConfUI:
 		model, row = self.filetree.get_selection().get_selected()
 		if row != None:
 			idn = model.get_value(row,1).split("/")[-1]
-			desc = model.get_value(row,0)
+			#desc = model.get_value(row,0)
 		self.config.changeDesc(idn, self.entryDesc.get_text())
 
 	def treeISO_select(self, widget):
 		model, row = self.filetree.get_selection().get_selected()
 		if row != None:
 			idn = model.get_value(row,1)			
-			desc = model.get_value(row,0)
+			#desc = model.get_value(row,0)
 		self.entryDesc.set_text(self.config.getDesc(idn))
 	
 	def btn_add(self, widget):

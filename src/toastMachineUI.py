@@ -31,6 +31,8 @@ pygtk.require('2.0')
 import subprocess
 from threading import Thread
 
+from gettext import gettext as _
+
 import misc
 from toastConfigurator import toastConfigurator
 from toastDiskMonitor import toastDiskMonitor
@@ -66,13 +68,13 @@ class toastMachineUI(object):
 		
 		self.treeview = self.wTree.get_widget("treeview1")
 		self.treeview.set_model(self.config.getListForTreeViewTM())
-		self.tc = gtk.TreeViewColumn(("Available ISOs"))
+		self.tc = gtk.TreeViewColumn(("Risorse disponibili"))
 		self.treeview.append_column(self.tc)
 		self.cr = gtk.CellRendererText()
 		self.tc.pack_start(self.cr, True)
 		self.tc.add_attribute(self.cr, "markup", 0)
 		self.tc.set_expand(True)
-		self.td = gtk.TreeViewColumn(("Media"))
+		self.td = gtk.TreeViewColumn(("Tipo"))
 		self.treeview.append_column(self.td)
 		self.cr = gtk.CellRendererPixbuf()
 		self.td.pack_start(self.cr, True)

@@ -39,9 +39,10 @@ from toastDiskMonitor import toastDiskMonitor
 
 class toastMachineUI(object):
 	def __init__(self):
-		print 'starting %s' % misc.APP_NAME
+		print 'DEBUG: avvio %s' % misc.APP_NAME
 		
 		self.config = toastConfigurator()
+		self.secure = misc.passwordChecker()
 		
 		gladeUI = misc.getPath('ui', 'toast-machine.glade')
 		self.wTree = gtk.glade.XML(gladeUI,"window1")
@@ -68,13 +69,13 @@ class toastMachineUI(object):
 		
 		self.treeview = self.wTree.get_widget("treeview1")
 		self.treeview.set_model(self.config.getListForTreeViewTM())
-		self.tc = gtk.TreeViewColumn(("Risorse disponibili"))
+		self.tc = gtk.TreeViewColumn(_("Risorse disponibili"))
 		self.treeview.append_column(self.tc)
 		self.cr = gtk.CellRendererText()
 		self.tc.pack_start(self.cr, True)
 		self.tc.add_attribute(self.cr, "markup", 0)
 		self.tc.set_expand(True)
-		self.td = gtk.TreeViewColumn(("Tipo"))
+		self.td = gtk.TreeViewColumn(_("Tipo"))
 		self.treeview.append_column(self.td)
 		self.cr = gtk.CellRendererPixbuf()
 		self.td.pack_start(self.cr, True)
@@ -121,10 +122,10 @@ class toastMachineUI(object):
 	def idleCheck(self):
 		if self.dd_process.poll() == 0 and self.cp_process.poll() == 0 and self.burn_process.poll() == 0:
 			if self.toastMonitor.availableDevice == None:
-				self.status.set_text("Inserire supporto removibile")
+				self.status.set_text(_("Inserire un supporto"))
 				self.progressbar.set_text("")
 			else:
-				self.status.set_text("Supporto corrente: %s" % self.toastMonitor.availableDevice)
+				self.status.set_text(_("Supporto corrente: %s" % self.toastMonitor.availableDevice))
 		
 		if self.dd_process.poll() == None:
 			ready = select.select([self.dd_outfd],[],[],.1)
@@ -138,28 +139,28 @@ class toastMachineUI(object):
 		return True
 	
 	def btn_burn (self, widget):
-		print "TODO: BURN"
+		print "TODO: burning stuff"
 	
 	def btn_cp (self, widget):
 		file = None
-		#fileType = None
 		model, row = self.treeview.get_selection().get_selected()
 		if row != None:
 			file = model.get_value(row,1)
 			if self.toastMonitor.availableDevice != None:
 				if not self.toastMonitor.isMounted():
-					print "è da montare"
+					print "DEBUG: %s è da montare" % self.toastMonitor.availableDevice
 					self.toastMonitor.mount()
-					print "montato"
+					print "DEBUG: %s è già montato" % self.toastMonitor.availableDevice
 				if self.toastMonitor.isMounted():
-					print "TODO: copia effettiva"
+					print "FIXME: copia effettiva"
 					print self.toastMonitor.isWritable()
 					# FIXME: fix toastMonitor.isWeitable() that isn't working well (need 'not')
 					if not self.toastMonitor.isWritable():
 						# TODO: handling percentage during copy
 						os.system('echo cp "%s" "%s/"' % (file, self.toastMonitor.availableMountPoint))
 					else:
-						self.progressbar.set_text("File System in sola lettura :(")
+						self.progressbar.set_text(_("Il supporto non è scribile. Rimuoverlo"))
+						print "DEBUG: %s è un filesystem in sola lettura. Lo smonto" % self.toastMonitor.availableDevice
 						self.toastMonitor.unmount()
 	
 	def btn_dd (self, widget):
@@ -168,7 +169,7 @@ class toastMachineUI(object):
 		if row != None:
 			self.dd_file = model.get_value(row,1)
 			if self.toastMonitor.availableDevice == None:
-				print "No media found."
+				print "DEBUG: Nessun supporto rilevato"
 				return
 			
 			if self.toastMonitor.isMounted():
@@ -183,7 +184,7 @@ class toastMachineUI(object):
 			self.dd_file_flags = fcntl.fcntl(self.dd_outfd, fcntl.F_GETFL)
 			fcntl.fcntl(self.dd_outfd, fcntl.F_SETFL, self.dd_file_flags | os.O_NOFOLLOW)
 			
-			self.status.set_text("Trasferisco l'immagine bootabile sul supporto")
+			self.status.set_text(_("Trasferisco l'immagine selezionata sul supporto"))
 			Thread(target=self.ddWait).start()
 		return True
 
@@ -193,19 +194,19 @@ class toastMachineUI(object):
 		self.progressbar.set_text("Terminato: è possibile rimuovere il supporto")			
 	
 	def btn_exit (self, widget):
+		#if self.secure.check() == 'ok':
+		#	self.quit()
 		self.quit()
 		
 	def delete_event(self, widget, event):
-		#if self.validation.check() == "ok":
-		#	return False
-		print "FIXME: delete_event"
+		print "DEBUG: funzione disattivata"
 		return True
 
 	def showAbout(self, widget, data=None):
 		aboutDialog = gtk.AboutDialog()
 		aboutDialog.set_name("Toast Machine")
 		aboutDialog.set_version(misc.APP_VERSION)
-		aboutDialog.set_copyright("Copyright © 2010 Giampaolo Bozzali\n" + ("Original Idea by Cremona Linux User Group"))
+		aboutDialog.set_copyright("Copyright © 2010 Giampaolo Bozzali\n" + _("Idea originale del LUG Cremona"))
 		aboutDialog.set_comments("«Burnin' Distros»")
 		aboutDialog.set_logo(gtk.gdk.pixbuf_new_from_file(misc.get_app_logo()))
 		aboutDialog.set_authors(["Giampaolo Bozzali <giampaolo.bozzali@gmail.com>"])

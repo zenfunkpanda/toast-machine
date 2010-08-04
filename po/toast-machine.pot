@@ -8,12 +8,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-04 17:33+0200\n"
+"POT-Creation-Date: 2010-08-04 20:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../data/ui/toast-machine-conf.glade.h:1
@@ -65,4 +65,45 @@ msgstr ""
 
 #: ../data/ui/toast-machine.glade.h:16
 msgid "label"
+msgstr ""
+
+#: ../src/toastMachineConfUI.py:57
+msgid "Percorsi di ricerca"
+msgstr ""
+
+#: ../src/toastMachineConfUI.py:65
+msgid "Risorse Disponibili"
+msgstr ""
+
+#: ../src/toastMachineConfUI.py:74
+msgid "Seleziona Percorso"
+msgstr ""
+
+#: ../src/toastMachineUI.py:72
+msgid "Risorse disponibili"
+msgstr ""
+
+#: ../src/toastMachineUI.py:78
+msgid "Tipo"
+msgstr ""
+
+#: ../src/toastMachineUI.py:125
+msgid "Inserire un supporto"
+msgstr ""
+
+#: ../src/toastMachineUI.py:128
+#, python-format
+msgid "Supporto corrente: %s"
+msgstr ""
+
+#: ../src/toastMachineUI.py:162
+msgid "Il supporto non è scribile. Rimuoverlo"
+msgstr ""
+
+#: ../src/toastMachineUI.py:187
+msgid "Trasferisco l'immagine selezionata sul supporto"
+msgstr ""
+
+#: ../src/toastMachineUI.py:209
+msgid "Idea originale del LUG Cremona"
 msgstr ""

@@ -41,8 +41,12 @@ class InstallData(install_data):
       return data_files
 
     PO_DIR = 'po'
-    #FIXME availables
-    for lang in open(os.path.join(PO_DIR, 'availables'), 'r').readlines():
+    tmp = []
+    for poz in os.listdir(PO_DIR):
+    	if poz.endswith(".po"):
+    		tmp.append(poz.strip(".po"))
+    
+    for lang in tmp: #open(os.path.join(PO_DIR, 'availables'), 'r').readlines():
       lang = lang.strip()
       if lang:
         po = os.path.join(PO_DIR, '%s.po' % lang)

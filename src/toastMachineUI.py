@@ -140,7 +140,14 @@ class toastMachineUI(object):
 					self.progressbar.set_text(tmp)
 		
 		if self.cp_process.poll() == None:
-			print "TODO: cercare di aggiornare lo stato dell'operazione"
+			tmp = self.cp_file.split("/")[-1:][0]
+			ttmmpp = 0
+			try:
+				ttmmpp = "%s/%s" % (self.toastMonitor.availableMountPoint, tmp)
+			except:
+				ttmmpp = 0
+			print misc.humanSizeFile(self.cp_file), misc.humanSizeFile(ttmmpp)
+			print self.cp_process.poll()
 		
 		return True
 	
@@ -161,13 +168,13 @@ class toastMachineUI(object):
 			
 			self.cp_process = subprocess.Popen(["cp", self.cp_file, self.toastMonitor.availableMountPoint + "/"])
 			self.status.set_text(_("Copio il file selezionato sul supporto"))
+			Thread(target=self.cpWait).start()
 	
 	def cpWait	(self):
 		self.cp_process.wait()
 		self.progressbar.set_fraction(0.0)
 		self.progressbar.set_text("Terminato: è possibile rimuovere il supporto")
 		print "TODO: ask for a second operation or unmount"
-		Thread(target=self.cpWait).start()
 	
 	def btn_dd (self, widget):
 		self.dd_file = None

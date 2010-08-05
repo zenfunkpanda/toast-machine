@@ -81,6 +81,7 @@ setup(
   scripts=['toast-machine'],
   data_files=[
     ('share/xsessions', ['data/xsessions/toast-machine.desktop']),
+    ('share/applications', ['data/toast-machine_conf.desktop']),
     ('share/toast-machine/data/icons', glob('data/icons/*')),
     ('share/toast-machine/data/ui', glob('data/ui/*.glade')),
     ('share/doc/toast-machine', ['doc/README', 'doc/CHANGELOG', 'doc/THANKS']),

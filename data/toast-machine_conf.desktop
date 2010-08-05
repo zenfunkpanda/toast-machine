@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=0.1
+Name=Toast Machine (Setup)
+Comment=Self Service Distributor of Free Software
+Type=Application
+Comment[it_IT]=Distributore Self Service di Software Libero
+Exec=/usr/bin/toast-machine -c
+Icon=/usr/share/toast-machine/data/icons/toast-machine.png
+Terminal=false
+Categories=System;

@@ -67,6 +67,8 @@ class toastMachineUI(object):
 		self.ui_btn_cp = self.wTree.get_widget("btn_cp")
 		self.ui_btn_cp.set_sensitive(False)
 		
+		self.ui_buttongroup = self.wTree.get_widget("hbuttonbox1")
+		
 		self.treeview = self.wTree.get_widget("treeview1")
 		self.treeview.set_model(self.config.getListForTreeViewTM())
 		self.tc = gtk.TreeViewColumn(_("Risorse disponibili"))
@@ -88,7 +90,7 @@ class toastMachineUI(object):
 		
 		self.toastMonitor = toastDiskMonitor()
 		gobject.timeout_add (1000,self.toastMonitor.watch)
-		gobject.timeout_add (100,self.idleCheck)
+		gobject.timeout_add (150,self.idleCheck)
 		
 		self.dd_process = subprocess.Popen(["echo"])
 		self.dd_outfile = None
@@ -100,6 +102,7 @@ class toastMachineUI(object):
 		self.cp_file = None
 		
 		self.burn_process = subprocess.Popen(["echo"])
+		self.burn_file = None
 				
 		return
 
@@ -146,13 +149,26 @@ class toastMachineUI(object):
 				ttmmpp = "%s/%s" % (self.toastMonitor.availableMountPoint, tmp)
 			except:
 				ttmmpp = 0
-			print misc.humanSizeFile(self.cp_file), misc.humanSizeFile(ttmmpp)
-			print self.cp_process.poll()
+			self.progressbar.pulse()
+			txt = _("%s di %s copiati" % (misc.humanSizeFile(self.cp_file), misc.humanSizeFile(ttmmpp)))
+			self.progressbar.set_text(txt)
 		
 		return True
 	
 	def btn_burn (self, widget):
-		print "TODO: burning stuff"
+		self.burn_file = None
+		model, row = self.treeview.get_selection().get_selected()
+		if row != None:
+			self.burn_file = model.get_value(row,1)
+			print "DEBUG: passo la palla a brasero"
+			self.burn_process = subprocess.Popen(["brasero", "-i", self.burn_file ])
+			self.window.set_visible(False)
+			Thread(target=self.burnWait).start()
+
+	def burnWait (self):
+		self.burn_process.wait()
+		print "DEBUG: brasero si è chiuso"
+		self.window.set_visible(True)
 	
 	def btn_cp (self, widget):
 		self.cp_file = None
@@ -166,15 +182,18 @@ class toastMachineUI(object):
 			if not self.toastMonitor.isMounted():
 				self.toastMonitor.mount()
 			
+			self.ui_buttongroup.set_sensitive(False)
 			self.cp_process = subprocess.Popen(["cp", self.cp_file, self.toastMonitor.availableMountPoint + "/"])
 			self.status.set_text(_("Copio il file selezionato sul supporto"))
 			Thread(target=self.cpWait).start()
 	
-	def cpWait	(self):
+	def cpWait (self):
 		self.cp_process.wait()
 		self.progressbar.set_fraction(0.0)
 		self.progressbar.set_text("Terminato: è possibile rimuovere il supporto")
 		print "TODO: ask for a second operation or unmount"
+		self.toastMonitor.unmount()
+		self.ui_buttongroup.set_sensitive(True)
 	
 	def btn_dd (self, widget):
 		self.dd_file = None
@@ -197,6 +216,7 @@ class toastMachineUI(object):
 			self.dd_file_flags = fcntl.fcntl(self.dd_outfd, fcntl.F_GETFL)
 			fcntl.fcntl(self.dd_outfd, fcntl.F_SETFL, self.dd_file_flags | os.O_NOFOLLOW)
 			
+			self.ui_buttongroup.set_sensitive(False)
 			self.status.set_text(_("Trasferisco l'immagine selezionata sul supporto"))
 			Thread(target=self.ddWait).start()
 		return True
@@ -204,7 +224,8 @@ class toastMachineUI(object):
 	def ddWait(self):
 		self.dd_process.wait()
 		self.progressbar.set_fraction(0.0)
-		self.progressbar.set_text("Terminato: è possibile rimuovere il supporto")			
+		self.progressbar.set_text("Terminato: è possibile rimuovere il supporto")
+		self.ui_buttongroup.set_sensitive(True)			
 	
 	def btn_exit (self, widget):
 		#if self.secure.check() == 'ok':

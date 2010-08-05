@@ -33,6 +33,26 @@ if __name__ == '__main__':
 	for module in (gettext, gtk.glade):
 		module.bindtextdomain(misc.APP_NAME, misc.getPath('locale'))
 		module.textdomain(misc.APP_NAME)
-		
-	main = toastMachineUI()
-	main.run()
+
+	if '--configure' in sys.argv or '-c' in sys.argv:
+		app = toastMachineConfUI()
+		app.run()
+	elif '--purge-config' in sys.argv or '-p' in sys.argv:
+		print _("Purging configuration file..."),
+		app = toastConfigurator()
+		print "...",
+		app.purgeDesc()
+		print _("...Done!")
+	elif '--help' in sys.argv or '-h' in sys.argv:
+		print "\nUsage:", sys.argv[0], "[-c | --configure] [-h | --help] [-v | --version] [-p | --purge-config]\n"
+	elif '--version' in sys.argv or '-v' in sys.argv:
+		print "\nToastMachine %s - Burnin' Distros" % misc.APP_VERSION
+		print "Copyright (c) 2010 Giampaolo Bozzali <giampaolo.bozzali@gmail.com>\n"
+	elif len(sys.argv) == 1:
+		#TODO: handle other window managers
+		os.system("metacity&")
+		app = toastMachineUI()
+		app.run()
+	else:
+		print _("Unrecognized argument")
+		sys.exit(255)

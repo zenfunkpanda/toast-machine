@@ -25,6 +25,7 @@ import gtk
 import ConfigParser
 import misc
 
+from gettext import gettext as _
 
 class toastConfigurator:
 	def __init__(self):
@@ -102,7 +103,7 @@ class toastConfigurator:
 
 		for item in self.config.options("descriptions"):
 			if not item in tmp:
-				print "non esiste: %s" % item
+				print _("Non esiste più: %s" % item)
 				self.config.remove_option("descriptions",item)
 		self.commit()
 

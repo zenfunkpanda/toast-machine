@@ -28,6 +28,7 @@ import misc
 
 from toastMachineUI import toastMachineUI
 from toastMachineConfUI import toastMachineConfUI
+from toastConfigurator import toastConfigurator
 
 if __name__ == '__main__':
 	for module in (gettext, gtk.glade):
@@ -38,11 +39,11 @@ if __name__ == '__main__':
 		app = toastMachineConfUI()
 		app.run()
 	elif '--purge-config' in sys.argv or '-p' in sys.argv:
-		print _("Purging configuration file..."),
+		print ("Purging configuration file..."),
 		app = toastConfigurator()
 		print "...",
 		app.purgeDesc()
-		print _("...Done!")
+		print ("...Done!")
 	elif '--help' in sys.argv or '-h' in sys.argv:
 		print "\nUsage:", sys.argv[0], "[-c | --configure] [-h | --help] [-v | --version] [-p | --purge-config]\n"
 	elif '--version' in sys.argv or '-v' in sys.argv:

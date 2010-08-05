@@ -8,12 +8,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-05 01:38+0200\n"
+"POT-Creation-Date: 2010-08-05 02:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../data/ui/toast-machine-conf.glade.h:1
@@ -67,6 +67,11 @@ msgstr ""
 msgid "label"
 msgstr ""
 
+#: ../src/toastConfigurator.py:106
+#, python-format
+msgid "Non esiste più: %s"
+msgstr ""
+
 #: ../src/toastMachineConfUI.py:57
 msgid "Percorsi di ricerca"
 msgstr ""
@@ -79,36 +84,40 @@ msgstr ""
 msgid "Seleziona Percorso"
 msgstr ""
 
-#: ../src/toastMachineUI.py:72
+#: ../src/toast-machine.py:58
+msgid "Unrecognized argument"
+msgstr ""
+
+#: ../src/toastMachineUI.py:74
 msgid "Risorse disponibili"
 msgstr ""
 
-#: ../src/toastMachineUI.py:78
+#: ../src/toastMachineUI.py:80
 msgid "Tipo"
 msgstr ""
 
-#: ../src/toastMachineUI.py:127
+#: ../src/toastMachineUI.py:130
 msgid "Inserire un supporto"
 msgstr ""
 
-#: ../src/toastMachineUI.py:130
+#: ../src/toastMachineUI.py:133
 #, python-format
 msgid "Supporto corrente: %s"
 msgstr ""
 
-#: ../src/toastMachineUI.py:150
+#: ../src/toastMachineUI.py:153
 #, python-format
 msgid "%s di %s copiati"
 msgstr ""
 
-#: ../src/toastMachineUI.py:171
+#: ../src/toastMachineUI.py:187
 msgid "Copio il file selezionato sul supporto"
 msgstr ""
 
-#: ../src/toastMachineUI.py:202
+#: ../src/toastMachineUI.py:220
 msgid "Trasferisco l'immagine selezionata sul supporto"
 msgstr ""
 
-#: ../src/toastMachineUI.py:224
+#: ../src/toastMachineUI.py:243
 msgid "Idea originale del LUG Cremona"
 msgstr ""

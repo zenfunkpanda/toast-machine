@@ -12,6 +12,7 @@
     <property name="gravity">center</property>
     <signal name="destroy" handler="on_window1_destroy"/>
     <signal name="delete_event" handler="on_window1_delete_event"/>
+    <signal name="window_state_event" handler="on_window1_window_state_event"/>
     <child>
       <widget class="GtkVBox" id="vbox1">
         <property name="visible">True</property>

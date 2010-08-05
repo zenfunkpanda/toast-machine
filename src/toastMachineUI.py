@@ -55,6 +55,7 @@ class toastMachineUI(object):
 			"on_btn_dd_clicked": self.btn_dd,
 			"on_treeview1_cursor_changed": self.selectionChanged,
 			"on_btn_about_clicked": self.showAbout,
+			"on_window1_window_state_event": self.minimize_event
 		}
 		self.wTree.signal_autoconnect( dic )
 		
@@ -235,6 +236,10 @@ class toastMachineUI(object):
 	def delete_event(self, widget, event):
 		print "DEBUG: funzione disattivata"
 		return True
+	
+	def minimize_event (self, widget, event):
+		print "FIXME: workaround per evitare la minimizzazione della finestra"
+		self.window.deiconify()
 
 	def showAbout(self, widget, data=None):
 		aboutDialog = gtk.AboutDialog()

@@ -103,7 +103,7 @@ class toastConfigurator:
 
 		for item in self.config.options("descriptions"):
 			if not item in tmp:
-				print _("Non esiste più: %s" % item)
+				print _("No longer exists: %s" % item)
 				self.config.remove_option("descriptions",item)
 		self.commit()
 

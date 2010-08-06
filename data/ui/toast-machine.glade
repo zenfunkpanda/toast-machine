@@ -39,7 +39,7 @@
         <child>
           <widget class="GtkLabel" id="label1">
             <property name="visible">True</property>
-            <property name="label" translatable="yes">label</property>
+            <property name="label">label</property>
           </widget>
           <packing>
             <property name="expand">False</property>

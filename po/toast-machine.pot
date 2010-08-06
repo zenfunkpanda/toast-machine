@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-05 02:19+0200\n"
+"POT-Creation-Date: 2010-08-06 02:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,53 +17,48 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../data/ui/toast-machine-conf.glade.h:1
-msgid "Descrizione"
+msgid "Description"
 msgstr ""
 
 #: ../data/ui/toast-machine-conf.glade.h:2
-msgid "Toast Machine - Configurazione"
+msgid "Toast Machine - Settings"
 msgstr ""
 
 #: ../data/ui/toast-machine.glade.h:1
-msgid "Copia"
+msgid "Burn"
 msgstr ""
 
 #: ../data/ui/toast-machine.glade.h:2
+msgid "Burns the selected ISO image"
+msgstr ""
+
+#: ../data/ui/toast-machine.glade.h:3
+msgid "Copy"
+msgstr ""
+
+#: ../data/ui/toast-machine.glade.h:4
 msgid ""
-"Copia l'archivio compresso o l'immagine disco selezionata\n"
-"su un supporto rimovibile USB/SD\n"
-"\n"
-"Il contenuto del supporto non verr&#xE0; alterato"
+"Copy the selected file into an\n"
+"existing filesystem on removable media."
 msgstr ""
 
 #: ../data/ui/toast-machine.glade.h:6
-msgid "Masterizza"
-msgstr ""
-
-#: ../data/ui/toast-machine.glade.h:7
-msgid ""
-"Masterizza l'immagine ISO selezionata su supporto ottico.\n"
-"\n"
-"Se il disco &#xE8; riscrivibile verr&#xE0; prima cancellato"
-msgstr ""
-
-#: ../data/ui/toast-machine.glade.h:10
 msgid "Toast Machine"
 msgstr ""
 
-#: ../data/ui/toast-machine.glade.h:11
+#: ../data/ui/toast-machine.glade.h:7
+msgid "Transfer"
+msgstr ""
+
+#: ../data/ui/toast-machine.glade.h:8
 msgid ""
-"Trasferisce l'immagine disco avviabile selezionata\n"
-"su un supporto removibile USB/SD.\n"
+"Transfer a bootable disk image\n"
+"onto a USB/SD removable media.\n"
 "\n"
-"Tutto il contenuto del supporto andr&#xE0; perso"
+"All data on the media will be lost"
 msgstr ""
 
-#: ../data/ui/toast-machine.glade.h:15
-msgid "Trasferisci"
-msgstr ""
-
-#: ../data/ui/toast-machine.glade.h:16
+#: ../data/ui/toast-machine.glade.h:12
 msgid "label"
 msgstr ""
 
@@ -73,51 +68,51 @@ msgid "Non esiste più: %s"
 msgstr ""
 
 #: ../src/toastMachineConfUI.py:57
-msgid "Percorsi di ricerca"
+msgid "Search paths"
 msgstr ""
 
-#: ../src/toastMachineConfUI.py:65
-msgid "Risorse Disponibili"
+#: ../src/toastMachineConfUI.py:65 ../src/toastMachineUI.py:75
+msgid "Available resources"
 msgstr ""
 
 #: ../src/toastMachineConfUI.py:74
-msgid "Seleziona Percorso"
+msgid "Select path"
 msgstr ""
 
 #: ../src/toast-machine.py:58
-msgid "Unrecognized argument"
+msgid "toast-machine: invalid option"
 msgstr ""
 
-#: ../src/toastMachineUI.py:74
-msgid "Risorse disponibili"
+#: ../src/toastMachineUI.py:81
+msgid "Type"
 msgstr ""
 
-#: ../src/toastMachineUI.py:80
-msgid "Tipo"
+#: ../src/toastMachineUI.py:131
+msgid "Insert a removable media"
 msgstr ""
 
-#: ../src/toastMachineUI.py:130
-msgid "Inserire un supporto"
-msgstr ""
-
-#: ../src/toastMachineUI.py:133
+#: ../src/toastMachineUI.py:134
 #, python-format
-msgid "Supporto corrente: %s"
+msgid "Current media: %s"
 msgstr ""
 
-#: ../src/toastMachineUI.py:153
+#: ../src/toastMachineUI.py:154
 #, python-format
-msgid "%s di %s copiati"
+msgid "%s of %s copied"
 msgstr ""
 
-#: ../src/toastMachineUI.py:187
-msgid "Copio il file selezionato sul supporto"
+#: ../src/toastMachineUI.py:188
+msgid "Copying selected file on removable media"
 msgstr ""
 
-#: ../src/toastMachineUI.py:220
-msgid "Trasferisco l'immagine selezionata sul supporto"
+#: ../src/toastMachineUI.py:194 ../src/toastMachineUI.py:228
+msgid "Finish! You can safely unplug your removable media"
 msgstr ""
 
-#: ../src/toastMachineUI.py:243
+#: ../src/toastMachineUI.py:221
+msgid "Transferring selected bootable image on removable media"
+msgstr ""
+
+#: ../src/toastMachineUI.py:248
 msgid "Idea originale del LUG Cremona"
 msgstr ""

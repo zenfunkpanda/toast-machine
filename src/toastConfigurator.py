@@ -145,6 +145,6 @@ class toastConfigurator:
 	### --- Change the description of a given option
 	def changeDesc(self, idn, value):
 		self.config.set("descriptions", idn, value)
-
+	### --- Get the description of a given option
 	def getDesc(self, idn):
 		return self.config.get("descriptions", idn)

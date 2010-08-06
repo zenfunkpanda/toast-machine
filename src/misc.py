@@ -3,7 +3,7 @@
 
 ##
 #   Project: toast-machine - Self-Service Burning Station  
-#	Author: Giampaolo Bozzali <giampaolo.bozzali@gmail.com>
+#    Author: Giampaolo Bozzali <giampaolo.bozzali@gmail.com>
 # Copyright: 2010 Giampaolo Bozzali
 #   License: GPL-2+
 #  This program is free software; you can redistribute it and/or modify it
@@ -47,7 +47,7 @@ PATHS = {
 }
 
 def getPath(key, append = ''):
-	"Returns the correct path for the specified key"
+	### Returns the correct path for the specified key
 	for path in PATHS[key]:
 		if os.path.isdir(path):
 			if append:
@@ -56,11 +56,12 @@ def getPath(key, append = ''):
 				return os.path.abspath(path)
 
 def get_app_logo():
-	"Returns the path of the icon logo"
+	### Returns the path of the icon logo
 	return getPath('icons', '%s.png' % APP_NAME)
 
 
 def humanSizeFile(file):
+	### Returns the human-readable size of a file
 	num = os.path.getsize(file)
 	for x in ['bytes','KB','MB','GB','TB']:
 		if num < 1024.0:
@@ -69,18 +70,17 @@ def humanSizeFile(file):
 	return 0
 
 def humanSize(num):
+	### Returns the human-readable size of a size (long)
 	for x in ['bytes','KB','MB','GB','TB']:
 		if num < 1024.0:
 			return "%3.1f%s" % (num, x)
 		num /= 1024.0
 	return 0
 
-def getPercentile(file,current):
-	return os.path.getsize(file) - current 
-	
+
 
 ### --- This Class helps to check the current user's password due to
-###	the need to ask the current user his password to shutdown the application
+###	    the need to ask the current user his password to shutdown the application
 class passwordChecker:
 	def __init__(self):
 		self.service = 'passwd'

@@ -6,7 +6,7 @@
     <property name="width_request">640</property>
     <property name="height_request">500</property>
     <property name="visible">True</property>
-    <property name="title" translatable="yes">Toast Machine - Configurazione</property>
+    <property name="title" translatable="yes">Toast Machine - Settings</property>
     <property name="window_position">center</property>
     <signal name="delete_event" handler="on_window1_delete_event"/>
     <child>
@@ -86,7 +86,7 @@
         <child>
           <widget class="GtkLabel" id="label1">
             <property name="visible">True</property>
-            <property name="label" translatable="yes">Descrizione</property>
+            <property name="label" translatable="yes">Description</property>
             <property name="single_line_mode">True</property>
           </widget>
           <packing>

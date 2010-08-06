@@ -83,17 +83,3 @@ class toastDiskMonitor:
 			
 		self.lastList = self.newList
 		return True
-		
-		
-if __name__ == "__main__":
-	# for testing
-	app = toastDiskMonitor()
-	app.availableDevice = "/dev/sdc1"
-	#if app.isMounted():
-	#	print app.availableMountPoint
-	app.unmount()
-	print app.availableMountPoint
-	#while 1:
-	#	time.sleep(3)
-	#	app.watch()
-	#	print app.availableDevice

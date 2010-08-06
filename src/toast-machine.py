@@ -55,5 +55,5 @@ if __name__ == '__main__':
 		app = toastMachineUI()
 		app.run()
 	else:
-		print _("Unrecognized argument")
+		print _("toast-machine: invalid option")
 		sys.exit(255)

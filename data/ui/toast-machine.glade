@@ -90,13 +90,11 @@
                 <property name="layout_style">center</property>
                 <child>
                   <widget class="GtkButton" id="btn_burn">
-                    <property name="label" translatable="yes">Masterizza</property>
+                    <property name="label" translatable="yes">Burn</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="tooltip" translatable="yes">Masterizza l'immagine ISO selezionata su supporto ottico.
-
-Se il disco &#xE8; riscrivibile verr&#xE0; prima cancellato</property>
+                    <property name="tooltip" translatable="yes">Burns the selected ISO image</property>
                     <signal name="clicked" handler="on_btn_burn_clicked"/>
                   </widget>
                   <packing>
@@ -107,14 +105,14 @@ Se il disco &#xE8; riscrivibile verr&#xE0; prima cancellato</property>
                 </child>
                 <child>
                   <widget class="GtkButton" id="btn_dd">
-                    <property name="label" translatable="yes">Trasferisci</property>
+                    <property name="label" translatable="yes">Transfer</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="tooltip" translatable="yes">Trasferisce l'immagine disco avviabile selezionata
-su un supporto removibile USB/SD.
+                    <property name="tooltip" translatable="yes">Transfer a bootable disk image
+onto a USB/SD removable media.
 
-Tutto il contenuto del supporto andr&#xE0; perso</property>
+All data on the media will be lost</property>
                     <signal name="clicked" handler="on_btn_dd_clicked"/>
                   </widget>
                   <packing>
@@ -125,14 +123,12 @@ Tutto il contenuto del supporto andr&#xE0; perso</property>
                 </child>
                 <child>
                   <widget class="GtkButton" id="btn_cp">
-                    <property name="label" translatable="yes">Copia</property>
+                    <property name="label" translatable="yes">Copy</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="tooltip" translatable="yes">Copia l'archivio compresso o l'immagine disco selezionata
-su un supporto rimovibile USB/SD
-
-Il contenuto del supporto non verr&#xE0; alterato</property>
+                    <property name="tooltip" translatable="yes">Copy the selected file into an
+existing filesystem on removable media.</property>
                     <signal name="clicked" handler="on_btn_cp_clicked"/>
                   </widget>
                   <packing>

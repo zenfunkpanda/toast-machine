@@ -54,7 +54,7 @@ class toastMachineConfUI:
 
 		self.dirtree = self.wTree.get_widget("treeview1")
 		self.dirtree.set_model(self.config.getDirListForTreeView())
-		self.tc = gtk.TreeViewColumn(_("Percorsi di ricerca"))
+		self.tc = gtk.TreeViewColumn(_("Search paths"))
 		self.dirtree.append_column(self.tc)
 		self.cr = gtk.CellRendererText()
 		self.tc.pack_start(self.cr, True)
@@ -62,7 +62,7 @@ class toastMachineConfUI:
 
 		self.filetree = self.wTree.get_widget("treeview2")
 		self.filetree.set_model(self.config.getListForTreeView())
-		self.tc = gtk.TreeViewColumn(_("Risorse Disponibili"))
+		self.tc = gtk.TreeViewColumn(_("Available resources"))
 		self.filetree.append_column(self.tc)
 		self.cr = gtk.CellRendererText()
 		self.tc.pack_start(self.cr, True)
@@ -71,7 +71,7 @@ class toastMachineConfUI:
 		self.entryDesc = self.wTree.get_widget("entryDesc")
 		
 	def selectDir(self):
-		dialog = gtk.FileChooserDialog(_("Seleziona Percorso"),
+		dialog = gtk.FileChooserDialog(_("Select path"),
                                None,
                                gtk.FILE_CHOOSER_ACTION_SELECT_FOLDER,
                                (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,

@@ -39,7 +39,7 @@ from toastDiskMonitor import toastDiskMonitor
 
 class toastMachineUI(object):
 	def __init__(self):
-		print 'DEBUG: avvio %s' % misc.APP_NAME
+		print 'DEBUG: starting %s' % misc.APP_NAME
 		
 		self.config = toastConfigurator()
 		self.secure = misc.passwordChecker()
@@ -72,13 +72,13 @@ class toastMachineUI(object):
 		
 		self.treeview = self.wTree.get_widget("treeview1")
 		self.treeview.set_model(self.config.getListForTreeViewTM())
-		self.tc = gtk.TreeViewColumn(_("Risorse disponibili"))
+		self.tc = gtk.TreeViewColumn(_("Available resources"))
 		self.treeview.append_column(self.tc)
 		self.cr = gtk.CellRendererText()
 		self.tc.pack_start(self.cr, True)
 		self.tc.add_attribute(self.cr, "markup", 0)
 		self.tc.set_expand(True)
-		self.td = gtk.TreeViewColumn(_("Tipo"))
+		self.td = gtk.TreeViewColumn(_("Type"))
 		self.treeview.append_column(self.td)
 		self.cr = gtk.CellRendererPixbuf()
 		self.td.pack_start(self.cr, True)
@@ -128,10 +128,10 @@ class toastMachineUI(object):
 	def idleCheck(self):
 		if self.dd_process.poll() == 0 and self.cp_process.poll() == 0 and self.burn_process.poll() == 0:
 			if self.toastMonitor.availableDevice == None:
-				self.status.set_text(_("Inserire un supporto"))
+				self.status.set_text(_("Insert a removable media"))
 				self.progressbar.set_text("")
 			else:
-				self.status.set_text(_("Supporto corrente: %s" % self.toastMonitor.availableDevice))
+				self.status.set_text(_("Current media: %s" % self.toastMonitor.availableDevice))
 		
 		if self.dd_process.poll() == None:
 			ready = select.select([self.dd_outfd],[],[],.1)
@@ -151,7 +151,7 @@ class toastMachineUI(object):
 			except:
 				ttmmpp = 0
 			self.progressbar.pulse()
-			txt = _("%s di %s copiati" % (misc.humanSizeFile(self.cp_file), misc.humanSizeFile(ttmmpp)))
+			txt = _("%s of %s copied" % (misc.humanSizeFile(self.cp_file), misc.humanSizeFile(ttmmpp)))
 			self.progressbar.set_text(txt)
 		
 		return True
@@ -185,13 +185,13 @@ class toastMachineUI(object):
 			
 			self.ui_buttongroup.set_sensitive(False)
 			self.cp_process = subprocess.Popen(["cp", self.cp_file, self.toastMonitor.availableMountPoint + "/"])
-			self.status.set_text(_("Copio il file selezionato sul supporto"))
+			self.status.set_text(_("Copying selected file on removable media"))
 			Thread(target=self.cpWait).start()
 	
 	def cpWait (self):
 		self.cp_process.wait()
 		self.progressbar.set_fraction(0.0)
-		self.progressbar.set_text("Terminato: è possibile rimuovere il supporto")
+		self.progressbar.set_text(_("Finish! You can safely unplug your removable media"))
 		print "TODO: ask for a second operation or unmount"
 		self.toastMonitor.unmount()
 		self.ui_buttongroup.set_sensitive(True)
@@ -218,14 +218,14 @@ class toastMachineUI(object):
 			fcntl.fcntl(self.dd_outfd, fcntl.F_SETFL, self.dd_file_flags | os.O_NOFOLLOW)
 			
 			self.ui_buttongroup.set_sensitive(False)
-			self.status.set_text(_("Trasferisco l'immagine selezionata sul supporto"))
+			self.status.set_text(_("Transferring selected bootable image on removable media"))
 			Thread(target=self.ddWait).start()
 		return True
 
 	def ddWait(self):
 		self.dd_process.wait()
 		self.progressbar.set_fraction(0.0)
-		self.progressbar.set_text("Terminato: è possibile rimuovere il supporto")
+		self.progressbar.set_text(_("Finish! You can safely unplug your removable media"))
 		self.ui_buttongroup.set_sensitive(True)			
 	
 	def btn_exit (self, widget):
@@ -246,7 +246,7 @@ class toastMachineUI(object):
 		aboutDialog.set_name("Toast Machine")
 		aboutDialog.set_version(misc.APP_VERSION)
 		aboutDialog.set_copyright("Copyright © 2010 Giampaolo Bozzali\n" + _("Idea originale del LUG Cremona"))
-		aboutDialog.set_comments("«Burnin' Distros»")
+		#aboutDialog.set_comments("«Burnin' Distros»")
 		aboutDialog.set_logo(gtk.gdk.pixbuf_new_from_file(misc.get_app_logo()))
 		aboutDialog.set_authors(["Giampaolo Bozzali <giampaolo.bozzali@gmail.com>"])
 		aboutDialog.set_website("http://toastmachine.trinhackria.org")

@@ -190,10 +190,10 @@ class toastMachineUI(object):
 	
 	def cpWait (self):
 		self.cp_process.wait()
+		self.toastMonitor.unmount()
 		self.progressbar.set_fraction(0.0)
 		self.progressbar.set_text(_("Finish! You can safely unplug your removable media"))
 		print "TODO: ask for a second operation or unmount"
-		self.toastMonitor.unmount()
 		self.ui_buttongroup.set_sensitive(True)
 	
 	def btn_dd (self, widget):

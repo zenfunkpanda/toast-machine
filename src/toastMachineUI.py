@@ -245,7 +245,7 @@ class toastMachineUI(object):
 		aboutDialog = gtk.AboutDialog()
 		aboutDialog.set_name("Toast Machine")
 		aboutDialog.set_version(misc.APP_VERSION)
-		aboutDialog.set_copyright("Copyright © 2010 Giampaolo Bozzali\n" + _("Idea originale del LUG Cremona"))
+		aboutDialog.set_copyright("Copyright © 2010 Giampaolo Bozzali\n" + _("Original idea by LUG Cremona"))
 		#aboutDialog.set_comments("«Burnin' Distros»")
 		aboutDialog.set_logo(gtk.gdk.pixbuf_new_from_file(misc.get_app_logo()))
 		aboutDialog.set_authors(["Giampaolo Bozzali <giampaolo.bozzali@gmail.com>"])

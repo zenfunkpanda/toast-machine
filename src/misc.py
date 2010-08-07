@@ -20,6 +20,11 @@
 # can be found in the file /usr/share/common-licenses/GPL-2.
 ##
 
+##
+#  misc.py is based on handlepaths.py and modified on August 2010
+#  Copyright (c) 2009 Fabrizio Castelli <muflone@vbsimple.net>
+##
+
 import os
 import sys
 import PAM

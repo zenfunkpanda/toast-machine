@@ -51,6 +51,9 @@ class toastMachineConfUI:
 			"on_toastConfig_destroy": self.quit,
 			}
 		self.wTree.signal_autoconnect( dic )
+		
+		self.window = self.wTree.get_widget("window1")
+		self.window.set_icon_from_file(misc.getPath('icons', 'toast-machine.png'))
 
 		self.dirtree = self.wTree.get_widget("treeview1")
 		self.dirtree.set_model(self.config.getDirListForTreeView())

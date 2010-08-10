@@ -60,6 +60,7 @@ class toastMachineUI(object):
 		self.wTree.signal_autoconnect( dic )
 		
 		self.window = self.wTree.get_widget("window1")
+		self.window.set_icon_from_file(misc.getPath('icons', 'toast-machine.png'))
 		
 		self.ui_btn_burn = self.wTree.get_widget("btn_burn")
 		self.ui_btn_burn.set_sensitive(False)

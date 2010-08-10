@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: toast-machine\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-08-06 16:08+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-08-10 12:42+0200\n"
 "PO-Revision-Date: 2010-08-06 14:28+0000\n"
 "Last-Translator: Giampaolo Bozzali <giampaolo.bozzali@gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
@@ -65,20 +65,24 @@ msgstr ""
 "\n"
 "Tutti i dati andranno persi"
 
+#: ../src/misc.py:95
+msgid "Toast Machine user password request"
+msgstr ""
+
 #: ../src/toastConfigurator.py:106
 #, python-format
 msgid "No longer exists: %s"
 msgstr "Non esiste più: %s"
 
-#: ../src/toastMachineConfUI.py:57
+#: ../src/toastMachineConfUI.py:60
 msgid "Search paths"
 msgstr "Percorsi di ricerca"
 
-#: ../src/toastMachineConfUI.py:65 ../src/toastMachineUI.py:75
+#: ../src/toastMachineConfUI.py:68 ../src/toastMachineUI.py:76
 msgid "Available resources"
 msgstr "Risorse disponibili"
 
-#: ../src/toastMachineConfUI.py:74
+#: ../src/toastMachineConfUI.py:77
 msgid "Select path"
 msgstr "Seleziona percorso"
 
@@ -86,36 +90,36 @@ msgstr "Seleziona percorso"
 msgid "toast-machine: invalid option"
 msgstr "toast-machine: opzione non valida"
 
-#: ../src/toastMachineUI.py:81
+#: ../src/toastMachineUI.py:82
 msgid "Type"
 msgstr "Tipo"
 
-#: ../src/toastMachineUI.py:131
+#: ../src/toastMachineUI.py:132
 msgid "Insert a removable media"
 msgstr "Inserisci un supporto rimovibile"
 
-#: ../src/toastMachineUI.py:134
+#: ../src/toastMachineUI.py:135
 #, python-format
 msgid "Current media: %s"
 msgstr "Supporto corrente: %s"
 
-#: ../src/toastMachineUI.py:154
+#: ../src/toastMachineUI.py:155
 #, python-format
 msgid "%s of %s copied"
 msgstr "%s di %s copiati"
 
-#: ../src/toastMachineUI.py:188
+#: ../src/toastMachineUI.py:189
 msgid "Copying selected file on removable media"
 msgstr "Copio il file selezionato sul supporto rimovibile"
 
-#: ../src/toastMachineUI.py:194 ../src/toastMachineUI.py:228
+#: ../src/toastMachineUI.py:196 ../src/toastMachineUI.py:229
 msgid "Finish! You can safely unplug your removable media"
 msgstr "Finito! Puoi rimuovere il supporto rimovibile"
 
-#: ../src/toastMachineUI.py:221
+#: ../src/toastMachineUI.py:222
 msgid "Transferring selected bootable image on removable media"
 msgstr "Trasferisco l'immagine disco avviabile sul supporto rimovibile"
 
-#: ../src/toastMachineUI.py:248
+#: ../src/toastMachineUI.py:249
 msgid "Original idea by LUG Cremona"
 msgstr "Idea originale del LUG Cremona"

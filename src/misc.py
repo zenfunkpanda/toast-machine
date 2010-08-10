@@ -90,6 +90,9 @@ class passwordChecker:
 	def __init__(self):
 		self.service = 'passwd'
 		self.user = os.popen("whoami").readlines()[0][:-1]
+		self.context = gksu2.Context()
+		self.context.set_description(APP_NAME)
+		self.context.set_message(_("Toast Machine user password request"))
 
 	def pam_conv(self, auth, query_list, userData):
 		resp = []
@@ -98,7 +101,8 @@ class passwordChecker:
 			if type == PAM.PAM_PROMPT_ECHO_ON:			
 				resp.append((self.user, 0))
 			elif type == PAM.PAM_PROMPT_ECHO_OFF:
-				resp.append((gksu2.ask_password(), 0))
+				#resp.append((gksu2.ask_password(), 0))
+				resp.append((gksu2.ask_password_full(self.context, 'Password:'), 0))
 			elif type == PAM.PAM_PROMPT_ERROR_MSG or type == PAM.PAM_PROMPT_TEXT_INFO:
 				print query
 				resp.append(('', 0))

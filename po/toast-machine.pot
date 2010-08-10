@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-06 16:08+0200\n"
+"POT-Creation-Date: 2010-08-10 12:42+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,20 +58,24 @@ msgid ""
 "All data on the media will be lost"
 msgstr ""
 
+#: ../src/misc.py:95
+msgid "Toast Machine user password request"
+msgstr ""
+
 #: ../src/toastConfigurator.py:106
 #, python-format
 msgid "No longer exists: %s"
 msgstr ""
 
-#: ../src/toastMachineConfUI.py:57
+#: ../src/toastMachineConfUI.py:60
 msgid "Search paths"
 msgstr ""
 
-#: ../src/toastMachineConfUI.py:65 ../src/toastMachineUI.py:75
+#: ../src/toastMachineConfUI.py:68 ../src/toastMachineUI.py:76
 msgid "Available resources"
 msgstr ""
 
-#: ../src/toastMachineConfUI.py:74
+#: ../src/toastMachineConfUI.py:77
 msgid "Select path"
 msgstr ""
 
@@ -79,36 +83,36 @@ msgstr ""
 msgid "toast-machine: invalid option"
 msgstr ""
 
-#: ../src/toastMachineUI.py:81
+#: ../src/toastMachineUI.py:82
 msgid "Type"
 msgstr ""
 
-#: ../src/toastMachineUI.py:131
+#: ../src/toastMachineUI.py:132
 msgid "Insert a removable media"
 msgstr ""
 
-#: ../src/toastMachineUI.py:134
+#: ../src/toastMachineUI.py:135
 #, python-format
 msgid "Current media: %s"
 msgstr ""
 
-#: ../src/toastMachineUI.py:154
+#: ../src/toastMachineUI.py:155
 #, python-format
 msgid "%s of %s copied"
 msgstr ""
 
-#: ../src/toastMachineUI.py:188
+#: ../src/toastMachineUI.py:189
 msgid "Copying selected file on removable media"
 msgstr ""
 
-#: ../src/toastMachineUI.py:194 ../src/toastMachineUI.py:228
+#: ../src/toastMachineUI.py:196 ../src/toastMachineUI.py:229
 msgid "Finish! You can safely unplug your removable media"
 msgstr ""
 
-#: ../src/toastMachineUI.py:221
+#: ../src/toastMachineUI.py:222
 msgid "Transferring selected bootable image on removable media"
 msgstr ""
 
-#: ../src/toastMachineUI.py:248
+#: ../src/toastMachineUI.py:249
 msgid "Original idea by LUG Cremona"
 msgstr ""

@@ -30,6 +30,8 @@ import sys
 import PAM
 import gksu2
 
+from gettext import gettext as _
+
 __base_path__ = os.path.dirname(os.path.abspath(__file__))
 
 APP_NAME = 'toast-machine'

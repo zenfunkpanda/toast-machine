@@ -780,12 +780,16 @@ class SingleEdgeSelector (EdgeSelector):
             cr.set_source_rgb (0.64, 0.00, 0.00)
 
     def edge_clicked (self, widget, edge, event):
+    	print self._current
+    	print edge
+    	
         if not len (edge):
             return
-        if edge in self._current:
-            self._current.remove (edge)
-        else:
-            self._current.append (edge)
+        self._current = [edge]
+        #if edge in self._current:
+        #    self._current.remove (edge)
+        #else:
+        #    self._current.append (edge)
 
         self.redraw (queue = True)
 

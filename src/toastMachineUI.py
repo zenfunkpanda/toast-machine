@@ -152,7 +152,7 @@ class toastMachineUI(object):
 			except:
 				ttmmpp = 0
 			self.progressbar.pulse()
-			txt = _("%s of %s copied" % (misc.humanSizeFile(self.cp_file), misc.humanSizeFile(ttmmpp)))
+			txt = _("%s of %s copied" % (misc.humanSizeFile(ttmmpp),misc.humanSizeFile(self.cp_file)))
 			self.progressbar.set_text(txt)
 		
 		return True

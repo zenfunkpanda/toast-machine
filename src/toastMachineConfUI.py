@@ -46,6 +46,7 @@ class toastMachineConfUI:
 			"on_btn_cancel_clicked": self.btn_cancel,
 			"on_btn_add_clicked" : self.btn_add,
 			"on_btn_del_clicked" : self.btn_del,
+			"on_btn_appereance_clicked" : self.btn_appereance,
 			"on_treeISO_cursor_changed": self.treeISO_select,
 			"on_window1_delete_event": self.delete_event,
 			"on_toastConfig_destroy": self.quit,
@@ -127,7 +128,10 @@ class toastMachineConfUI:
 			paths.remove(path)
 			self.config.setPaths(paths)
 			self.dirtree.set_model(self.config.getDirListForTreeView())
-			self.filetree.set_model(self.config.getListForTreeView())			
+			self.filetree.set_model(self.config.getListForTreeView())
+	
+	def btn_appereance(self, widget):
+		print "TODO: show appereance window"			
 
 	def btn_save(self, widget):
 		self.config.commit()

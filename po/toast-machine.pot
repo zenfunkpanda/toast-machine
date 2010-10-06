@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-10 12:42+0200\n"
+"POT-Creation-Date: 2010-10-07 01:28+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,10 +17,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../data/ui/toast-machine-conf.glade.h:1
-msgid "Description"
+msgid "Appereance..."
 msgstr ""
 
 #: ../data/ui/toast-machine-conf.glade.h:2
+msgid "Description"
+msgstr ""
+
+#: ../data/ui/toast-machine-conf.glade.h:3
 msgid "Toast Machine - Settings"
 msgstr ""
 
@@ -58,7 +62,7 @@ msgid ""
 "All data on the media will be lost"
 msgstr ""
 
-#: ../src/misc.py:95
+#: ../src/misc.py:97
 msgid "Toast Machine user password request"
 msgstr ""
 
@@ -67,15 +71,15 @@ msgstr ""
 msgid "No longer exists: %s"
 msgstr ""
 
-#: ../src/toastMachineConfUI.py:60
+#: ../src/toastMachineConfUI.py:61
 msgid "Search paths"
 msgstr ""
 
-#: ../src/toastMachineConfUI.py:68 ../src/toastMachineUI.py:76
+#: ../src/toastMachineConfUI.py:69 ../src/toastMachineUI.py:76
 msgid "Available resources"
 msgstr ""
 
-#: ../src/toastMachineConfUI.py:77
+#: ../src/toastMachineConfUI.py:78
 msgid "Select path"
 msgstr ""
 

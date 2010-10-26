@@ -55,7 +55,7 @@ class EdgeSelector (gtk.DrawingArea):
     def __init__ (self):
         '''Prepare widget'''
         super (EdgeSelector, self).__init__ ()
-        background = "../../data/icons/display.png"
+        background = "../data/icons/display.png"
         self._base_surface = cairo.ImageSurface.create_from_png (background)
         self.add_events (gtk.gdk.BUTTON_PRESS_MASK)
         self.connect ("expose_event", self.expose)

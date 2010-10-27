@@ -57,12 +57,12 @@ class toastMachineConfAppearanceUI:
 		self.window = self.wTree.get_widget("window1")
 		self.window.set_icon_from_file(misc.getPath('icons', 'toast-machine.png'))
 		
-		self.hbox = self.wTree.get_widget("hbox1")
+		self.vbox = self.wTree.get_widget("vbox2")
 		self.selector = Widgets.SingleEdgeSelector("")
 		
-		self.hbox.add(self.selector)
-		self.hbox.reorder_child(self.selector,0)
-		self.hbox.show_all()
+		self.vbox.add(self.selector)
+		self.vbox.reorder_child(self.selector,1)
+		self.vbox.show_all()
 
 	def btn_cancel(self, widget):
 		print "TODO: Close"

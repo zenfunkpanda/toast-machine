@@ -66,15 +66,16 @@ class toastMachineConfAppearanceUI:
 
 	def btn_cancel(self, widget):
 		print "TODO: Close"
+		self.quit()
 	
 	def delete_event(self, widget, event):
 		print "TODO: Aggiungere conferma di uscita"
-		return False
+		return True
 	
 	def run(self):
 		gtk.main()
 	
-	def quit(self, widget):
+	def quit(self):
 		sys.exit(0)
 
 if __name__ == "__main__":

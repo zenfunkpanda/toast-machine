@@ -9,6 +9,7 @@ Runtime dependencies:
  - python-gksu2
  - udisks
  - python-pam
+ - gettext (build)
 
 Issues:
  - On Ubuntu the user who runs toast-machine must belong to 'disk' group

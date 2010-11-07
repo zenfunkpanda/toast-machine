@@ -38,12 +38,13 @@ class toastMachineConfAppearanceUI:
 	def __init__( self):
 		
 		self.config = toastConfigurator()
+		print self.config.getPosition()
 		
 		self.gladefile = misc.getPath('ui', 'toast-machine-conf-appearance.glade')
 		self.wTree = gtk.glade.XML(self.gladefile,"window1")
 		dic = 	{
 		#	"on_entryDesc_changed": self.entryDesc_change,
-		#	"on_btn_save_clicked": self.btn_save,
+			"on_btn_save_clicked": self.btn_save,
 			"on_btn_close_clicked": self.btn_cancel,
 		#	"on_btn_add_clicked" : self.btn_add,
 		#	"on_btn_del_clicked" : self.btn_del,
@@ -59,14 +60,47 @@ class toastMachineConfAppearanceUI:
 		
 		self.vbox = self.wTree.get_widget("vbox2")
 		self.selector = Widgets.SingleEdgeSelector("")
+		self.selector.connect ('clicked', self.updateEdgeLabel)
+		self.selector._current = [self.config.getPosition()]
 		
 		self.vbox.add(self.selector)
 		self.vbox.reorder_child(self.selector,1)
 		self.vbox.show_all()
+		
+		self.positionLabel = self.wTree.get_widget("label2")
+		self.updateEdgeLabel(self, None, None)
+
+	def updateEdgeLabel(self, widget, position, event):
+		position = self.selector._current
+		if position == ["Center"]:
+			self.positionLabel.set_text(_("Centered"))
+		elif position == ["Top"]:
+			self.positionLabel.set_text(_("Top"))
+		elif position == ["TopRight"]:
+			self.positionLabel.set_text(_("Top Right"))
+		elif position == ["Right"]:
+			self.positionLabel.set_text(_("Right"))
+		elif position == ["BottomRight"]:
+			self.positionLabel.set_text(_("Bottom Right"))
+		elif position == ["Bottom"]:
+			self.positionLabel.set_text(_("Bottom"))
+		elif position == ["BottomLeft"]:
+			self.positionLabel.set_text(_("Bottom Left"))
+		elif position == ["Left"]:
+			self.positionLabel.set_text(_("Left"))
+		elif position == ["TopLeft"]:
+			self.positionLabel.set_text(_("Top Left"))
 
 	def btn_cancel(self, widget):
 		print "TODO: Close"
-		self.quit()
+		if __name__ == "__main__":
+			self.quit()
+		self.window.hide()
+	
+	def btn_save(self, widget):
+		self.config.setPosition(self.selector._current[0])
+		self.config.commit()
+		print "TODO: Save"
 	
 	def delete_event(self, widget, event):
 		print "TODO: Aggiungere conferma di uscita"

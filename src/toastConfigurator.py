@@ -37,6 +37,7 @@ class toastConfigurator:
 		if not os.path.exists(self.configFile):
 			if not self.config.has_section("toastMachine"):
 				self.config.add_section('toastMachine')
+				self.config.set('toastMachine', 'position', 'Center')
 				self.config.set('toastMachine','path',self.defaultPath)
 				self.config.add_section('descriptions')
 				
@@ -145,6 +146,17 @@ class toastConfigurator:
 	### --- Change the description of a given option
 	def changeDesc(self, idn, value):
 		self.config.set("descriptions", idn, value)
+	
 	### --- Get the description of a given option
 	def getDesc(self, idn):
 		return self.config.get("descriptions", idn)
+	
+	### --- Get the position for the TM window
+	def getPosition(self):
+		if not self.config.has_option("toastMachine", "position"):
+			self.config.set('toastMachine', 'position', 'Center')
+		return self.config.get("toastMachine","position")
+	
+	### --- Set the position for the TM window
+	def setPosition(self, position):
+		self.config.set("toastMachine","position",position)

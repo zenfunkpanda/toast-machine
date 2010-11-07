@@ -31,12 +31,15 @@ from gettext import gettext as _
 
 import misc
 from toastConfigurator import toastConfigurator
+from toastMachineConfAppearanceUI import toastMachineConfAppearanceUI
 
 ### --- The Configuration GUI.
 class toastMachineConfUI:
 	def __init__( self):
 		
 		self.config = toastConfigurator()
+		self.appearance = toastMachineConfAppearanceUI()
+		self.appearance.window.hide()
 		
 		self.gladefile = misc.getPath('ui', 'toast-machine-conf.glade')
 		self.wTree = gtk.glade.XML(self.gladefile,"window1")
@@ -131,6 +134,7 @@ class toastMachineConfUI:
 			self.filetree.set_model(self.config.getListForTreeView())
 	
 	def btn_appereance(self, widget):
+		self.appearance.window.show()
 		print "TODO: show appereance window"			
 
 	def btn_save(self, widget):

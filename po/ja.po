@@ -7,21 +7,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: toast-machine\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-10 12:42+0200\n"
+"POT-Creation-Date: 2010-10-07 01:28+0200\n"
 "PO-Revision-Date: 2010-09-20 12:21+0000\n"
 "Last-Translator: Akihiro Kuroiwa <Unknown>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-26 05:43+0000\n"
+"X-Launchpad-Export-Date: 2010-11-09 05:08+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: ../data/ui/toast-machine-conf.glade.h:1
+msgid "Appereance..."
+msgstr ""
+
+#: ../data/ui/toast-machine-conf.glade.h:2
 msgid "Description"
 msgstr "説明"
 
-#: ../data/ui/toast-machine-conf.glade.h:2
+#: ../data/ui/toast-machine-conf.glade.h:3
 msgid "Toast Machine - Settings"
 msgstr "Toast Machine - 設定"
 
@@ -65,7 +69,7 @@ msgstr ""
 "\n"
 "メディアにある全てのデータは失われます"
 
-#: ../src/misc.py:95
+#: ../src/misc.py:97
 msgid "Toast Machine user password request"
 msgstr "Toast Machine user password request"
 
@@ -74,15 +78,15 @@ msgstr "Toast Machine user password request"
 msgid "No longer exists: %s"
 msgstr "もはや存在しません: %s"
 
-#: ../src/toastMachineConfUI.py:60
+#: ../src/toastMachineConfUI.py:61
 msgid "Search paths"
 msgstr "検索パス"
 
-#: ../src/toastMachineConfUI.py:68 ../src/toastMachineUI.py:76
+#: ../src/toastMachineConfUI.py:69 ../src/toastMachineUI.py:76
 msgid "Available resources"
 msgstr "利用できるリソース"
 
-#: ../src/toastMachineConfUI.py:77
+#: ../src/toastMachineConfUI.py:78
 msgid "Select path"
 msgstr "パスの選択"
 

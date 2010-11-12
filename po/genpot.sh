@@ -7,6 +7,7 @@ then
 fi
 intltool-extract --type=gettext/glade ../data/ui/toast-machine.glade
 intltool-extract --type=gettext/glade ../data/ui/toast-machine-conf.glade
+intltool-extract --type=gettext/glade ../data/ui/toast-machine-conf-appearance.glade
 
 if ! [ -f $POTFILE ]
 then

@@ -8,13 +8,38 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-07 01:28+0200\n"
+"POT-Creation-Date: 2010-11-12 01:19+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: ../data/ui/toast-machine-conf-appearance.glade.h:1
+msgid "Height"
+msgstr ""
+
+#: ../data/ui/toast-machine-conf-appearance.glade.h:2
+msgid "Positioning"
+msgstr ""
+
+#: ../data/ui/toast-machine-conf-appearance.glade.h:3
+msgid "Size"
+msgstr ""
+
+#: ../data/ui/toast-machine-conf-appearance.glade.h:4
+msgid "Toast Machine - Appearance"
+msgstr ""
+
+#: ../data/ui/toast-machine-conf-appearance.glade.h:5
+msgid "Wallpaper"
+msgstr ""
+
+#: ../data/ui/toast-machine-conf-appearance.glade.h:6
+msgid "Width"
+msgstr ""
 
 #: ../data/ui/toast-machine-conf.glade.h:1
 msgid "Appereance..."
@@ -66,20 +91,56 @@ msgstr ""
 msgid "Toast Machine user password request"
 msgstr ""
 
-#: ../src/toastConfigurator.py:106
+#: ../src/toastConfigurator.py:107
 #, python-format
 msgid "No longer exists: %s"
 msgstr ""
 
-#: ../src/toastMachineConfUI.py:61
+#: ../src/toastMachineConfAppearanceUI.py:76
+msgid "Centered"
+msgstr ""
+
+#: ../src/toastMachineConfAppearanceUI.py:78
+msgid "Top"
+msgstr ""
+
+#: ../src/toastMachineConfAppearanceUI.py:80
+msgid "Top Right"
+msgstr ""
+
+#: ../src/toastMachineConfAppearanceUI.py:82
+msgid "Right"
+msgstr ""
+
+#: ../src/toastMachineConfAppearanceUI.py:84
+msgid "Bottom Right"
+msgstr ""
+
+#: ../src/toastMachineConfAppearanceUI.py:86
+msgid "Bottom"
+msgstr ""
+
+#: ../src/toastMachineConfAppearanceUI.py:88
+msgid "Bottom Left"
+msgstr ""
+
+#: ../src/toastMachineConfAppearanceUI.py:90
+msgid "Left"
+msgstr ""
+
+#: ../src/toastMachineConfAppearanceUI.py:92
+msgid "Top Left"
+msgstr ""
+
+#: ../src/toastMachineConfUI.py:64
 msgid "Search paths"
 msgstr ""
 
-#: ../src/toastMachineConfUI.py:69 ../src/toastMachineUI.py:76
+#: ../src/toastMachineConfUI.py:72 ../src/toastMachineUI.py:76
 msgid "Available resources"
 msgstr ""
 
-#: ../src/toastMachineConfUI.py:78
+#: ../src/toastMachineConfUI.py:81
 msgid "Select path"
 msgstr ""
 

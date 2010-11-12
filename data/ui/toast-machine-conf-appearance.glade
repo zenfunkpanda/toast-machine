@@ -35,7 +35,7 @@
                 <child>
                   <widget class="GtkLabel" id="label2">
                     <property name="visible">True</property>
-                    <property name="label" translatable="yes">label</property>
+                    <property name="label">label</property>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
@@ -70,7 +70,7 @@
                         <child>
                           <widget class="GtkLabel" id="label4">
                             <property name="visible">True</property>
-                            <property name="label" translatable="yes">label</property>
+                            <property name="label" translatable="yes">Width</property>
                           </widget>
                           <packing>
                             <property name="position">0</property>
@@ -97,7 +97,7 @@
                         <child>
                           <widget class="GtkLabel" id="label5">
                             <property name="visible">True</property>
-                            <property name="label" translatable="yes">label</property>
+                            <property name="label" translatable="yes">Height</property>
                           </widget>
                           <packing>
                             <property name="position">0</property>
@@ -130,7 +130,7 @@
                     <child>
                       <widget class="GtkLabel" id="label6">
                         <property name="visible">True</property>
-                        <property name="label" translatable="yes">label</property>
+                        <property name="label" translatable="yes">Wallpaper</property>
                       </widget>
                       <packing>
                         <property name="expand">False</property>
@@ -144,7 +144,7 @@
                         <child>
                           <widget class="GtkLabel" id="label7">
                             <property name="visible">True</property>
-                            <property name="label" translatable="yes">label</property>
+                            <property name="label">label</property>
                           </widget>
                           <packing>
                             <property name="position">0</property>
@@ -155,10 +155,11 @@
                             <property name="visible">True</property>
                             <child>
                               <widget class="GtkButton" id="button1">
-                                <property name="label" translatable="yes">button</property>
+                                <property name="label">gtk-edit</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="use_stock">True</property>
                               </widget>
                               <packing>
                                 <property name="expand">False</property>

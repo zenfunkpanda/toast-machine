@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: toast-machine\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-12 01:19+0100\n"
-"PO-Revision-Date: 2010-11-12 18:30+0000\n"
-"Last-Translator: simone.sandri <Unknown>\n"
+"PO-Revision-Date: 2010-11-13 16:11+0000\n"
+"Last-Translator: Giampaolo Bozzali <giampaolo.bozzali@gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-13 05:14+0000\n"
+"X-Launchpad-Export-Date: 2010-11-14 05:30+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: ../data/ui/toast-machine-conf-appearance.glade.h:1
@@ -23,7 +23,7 @@ msgstr "Altezza"
 
 #: ../data/ui/toast-machine-conf-appearance.glade.h:2
 msgid "Positioning"
-msgstr "Posizionando"
+msgstr "Posizione"
 
 #: ../data/ui/toast-machine-conf-appearance.glade.h:3
 msgid "Size"
@@ -31,7 +31,7 @@ msgstr "Dimensione"
 
 #: ../data/ui/toast-machine-conf-appearance.glade.h:4
 msgid "Toast Machine - Appearance"
-msgstr "Toast Machine - Grafica"
+msgstr "Toast Machine - Aspetto"
 
 #: ../data/ui/toast-machine-conf-appearance.glade.h:5
 msgid "Wallpaper"
@@ -104,7 +104,7 @@ msgstr "Non esiste più: %s"
 
 #: ../src/toastMachineConfAppearanceUI.py:76
 msgid "Centered"
-msgstr "Cebtrato"
+msgstr "Centrato"
 
 #: ../src/toastMachineConfAppearanceUI.py:78
 msgid "Top"

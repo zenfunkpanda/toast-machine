@@ -38,7 +38,6 @@ class toastMachineConfAppearanceUI:
 	def __init__( self):
 		
 		self.config = toastConfigurator()
-		print self.config.getPosition()
 		
 		self.gladefile = misc.getPath('ui', 'toast-machine-conf-appearance.glade')
 		self.wTree = gtk.glade.XML(self.gladefile,"window1")
@@ -46,7 +45,7 @@ class toastMachineConfAppearanceUI:
 		#	"on_entryDesc_changed": self.entryDesc_change,
 			"on_btn_save_clicked": self.btn_save,
 			"on_btn_close_clicked": self.btn_cancel,
-		#	"on_btn_add_clicked" : self.btn_add,
+			"on_btn_wallpaper_clicked" : self.btn_wallpaper,
 		#	"on_btn_del_clicked" : self.btn_del,
 		#	"on_btn_appereance_clicked" : self.btn_appereance,
 		#	"on_treeISO_cursor_changed": self.treeISO_select,
@@ -69,6 +68,15 @@ class toastMachineConfAppearanceUI:
 		
 		self.positionLabel = self.wTree.get_widget("label2")
 		self.updateEdgeLabel(self, None, None)
+		
+		a, b = self.config.getSize()
+		print gtk.gdk.screen_width(), gtk.gdk.screen_height()
+		self.widthSelector = self.wTree.get_widget("spinbutton1")
+		self.widthSelector.set_range(640.0, float(gtk.gdk.screen_width()))
+		self.widthSelector.set_value(float(a))
+		self.heightSelector = self.wTree.get_widget("spinbutton2")
+		self.heightSelector.set_range(480.0, float(gtk.gdk.screen_height()))
+		self.heightSelector.set_value(float(b))
 
 	def updateEdgeLabel(self, widget, position, event):
 		position = self.selector._current
@@ -91,6 +99,10 @@ class toastMachineConfAppearanceUI:
 		elif position == ["TopLeft"]:
 			self.positionLabel.set_text(_("Top Left"))
 
+	def btn_wallpaper(self, widget):
+		print self.widthSelector.get_value()
+		print self.heightSelector.get_value()
+	
 	def btn_cancel(self, widget):
 		print "TODO: Close"
 		if __name__ == "__main__":
@@ -99,6 +111,7 @@ class toastMachineConfAppearanceUI:
 	
 	def btn_save(self, widget):
 		self.config.setPosition(self.selector._current[0])
+		self.config.setSize(self.widthSelector.get_value(), self.heightSelector.get_value())
 		self.config.commit()
 		print "TODO: Save"
 	

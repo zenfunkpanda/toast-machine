@@ -60,6 +60,11 @@ class toastMachineUI(object):
 		self.wTree.signal_autoconnect( dic )
 		
 		self.window = self.wTree.get_widget("window1")
+		
+		a,b = self.config.getSize()
+		self.window.resize(int(float(a)), int(float(b)))
+		self.updateWindow()
+		
 		self.window.set_icon_from_file(misc.getPath('icons', 'toast-machine.png'))
 		
 		self.ui_btn_burn = self.wTree.get_widget("btn_burn")
@@ -107,6 +112,37 @@ class toastMachineUI(object):
 		self.burn_file = None
 				
 		return
+
+	def updateWindow(self):
+		#TODO: vedere se c'è un sistema più ergonomico per farlo
+		a,b = self.window.get_size()
+		if self.config.getPosition() == "Center":
+			self.window.set_gravity(gtk.gdk.GRAVITY_CENTER)
+			self.window.move(gtk.gdk.screen_width() / 2, gtk.gdk.screen_height() / 2 - b / 2)
+		elif self.config.getPosition() == "Top":
+			self.window.set_gravity(gtk.gdk.GRAVITY_NORTH)
+			self.window.move(gtk.gdk.screen_width() / 2, 0)
+		elif self.config.getPosition() == "TopRight":
+			self.window.set_gravity(gtk.gdk.GRAVITY_NORTH_EAST)
+			self.window.move(gtk.gdk.screen_width() , 0)
+		elif self.config.getPosition() == "Right":
+			self.window.set_gravity(gtk.gdk.GRAVITY_EAST)
+			self.window.move(gtk.gdk.screen_width() , gtk.gdk.screen_height() / 2 - b / 2)
+		elif self.config.getPosition() == "BottomRight":
+			self.window.set_gravity(gtk.gdk.GRAVITY_SOUTH_EAST)
+			self.window.move(gtk.gdk.screen_width() , gtk.gdk.screen_height() - b)
+		elif self.config.getPosition() == "Bottom":
+			self.window.set_gravity(gtk.gdk.GRAVITY_SOUTH)
+			self.window.move(gtk.gdk.screen_width() / 2, gtk.gdk.screen_height() - b)
+		elif self.config.getPosition() == "BottomLeft":
+			self.window.set_gravity(gtk.gdk.GRAVITY_SOUTH_WEST)
+			self.window.move(0, gtk.gdk.screen_height() - b)
+		elif self.config.getPosition() == "Left":
+			self.window.set_gravity(gtk.gdk.GRAVITY_WEST)
+			self.window.move(0, gtk.gdk.screen_height() / 2 - b / 2)
+		elif self.config.getPosition() == "TopLeft":
+			self.window.set_gravity(gtk.gdk.GRAVITY_NORTH_WEST)
+			self.window.move(0, 0)
 
 	def selectionChanged(self, widget):
 		model, row = self.treeview.get_selection().get_selected()
@@ -171,7 +207,8 @@ class toastMachineUI(object):
 		self.burn_process.wait()
 		print "DEBUG: brasero si è chiuso"
 		self.window.set_visible(True)
-	
+		self.updateWindow()
+		
 	def btn_cp (self, widget):
 		self.cp_file = None
 		model, row = self.treeview.get_selection().get_selected()
@@ -230,9 +267,9 @@ class toastMachineUI(object):
 		self.ui_buttongroup.set_sensitive(True)			
 	
 	def btn_exit (self, widget):
-		if self.secure.check() == 'ok':
-			self.quit()
-		#self.quit()
+		#if self.secure.check() == 'ok':
+		#	self.quit()
+		self.quit()
 		
 	def delete_event(self, widget, event):
 		print "DEBUG: funzione disattivata"

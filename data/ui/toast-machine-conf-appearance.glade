@@ -129,12 +129,13 @@
                       <widget class="GtkHButtonBox" id="hbuttonbox1">
                         <property name="visible">True</property>
                         <child>
-                          <widget class="GtkButton" id="button1">
+                          <widget class="GtkButton" id="btn_wallpaper">
                             <property name="label">gtk-edit</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="use_stock">True</property>
+                            <signal name="clicked" handler="on_btn_wallpaper_clicked"/>
                           </widget>
                           <packing>
                             <property name="expand">False</property>

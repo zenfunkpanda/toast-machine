@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <glade-interface>
   <!-- interface-requires gtk+ 2.6 -->
   <!-- interface-naming-policy project-wide -->
@@ -7,9 +7,7 @@
     <property name="height_request">480</property>
     <property name="visible">True</property>
     <property name="title" translatable="yes">Toast Machine</property>
-    <property name="resizable">False</property>
-    <property name="window_position">center</property>
-    <property name="gravity">center</property>
+    <property name="gravity">north</property>
     <signal name="destroy" handler="on_window1_destroy"/>
     <signal name="delete_event" handler="on_window1_delete_event"/>
     <signal name="window_state_event" handler="on_window1_window_state_event"/>

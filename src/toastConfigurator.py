@@ -38,6 +38,8 @@ class toastConfigurator:
 			if not self.config.has_section("toastMachine"):
 				self.config.add_section('toastMachine')
 				self.config.set('toastMachine', 'position', 'Center')
+				self.config.set('toastMachine', 'width','650')
+				self.cofnig.set('toastMachine', 'height', '490')
 				self.config.set('toastMachine','path',self.defaultPath)
 				self.config.add_section('descriptions')
 				
@@ -160,3 +162,15 @@ class toastConfigurator:
 	### --- Set the position for the TM window
 	def setPosition(self, position):
 		self.config.set("toastMachine","position",position)
+	
+	### --- Get the size of the TM window
+	def getSize(self):
+		if not self.config.has_option("toastMachine","width"):
+			self.config.set("toastMachine", "width", "650")
+		if not self.config.has_option("toastMachine", "height"):
+			self.config.set("toastMachine", "height", "490")
+		return (self.config.get("toastMachine", "width"), self.config.get("toastMachine","height"))
+	
+	def setSize(self, width, height):
+		self.config.set("toastMachine", "width", width)
+		self.config.set("toastMachine", "height", height)

@@ -44,6 +44,12 @@ class toastMachineUI(object):
 		self.config = toastConfigurator()
 		self.secure = misc.passwordChecker()
 		
+		if self.config.getWallpaper() != "default":
+			print "settare lo sfondo: %s" % self.config.getWallpaper()
+		else:
+			print "sfondo di default"
+			#misc.getPath("wallpapers","")
+		
 		gladeUI = misc.getPath('ui', 'toast-machine.glade')
 		self.wTree = gtk.glade.XML(gladeUI,"window1")
 		dic = 	{

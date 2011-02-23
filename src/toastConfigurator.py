@@ -39,7 +39,8 @@ class toastConfigurator:
 				self.config.add_section('toastMachine')
 				self.config.set('toastMachine', 'position', 'Center')
 				self.config.set('toastMachine', 'width','650')
-				self.cofnig.set('toastMachine', 'height', '490')
+				self.config.set('toastMachine', 'height', '490')
+				self.config.set('toastMachine', 'wallpaper', 'default')
 				self.config.set('toastMachine','path',self.defaultPath)
 				self.config.add_section('descriptions')
 				
@@ -171,6 +172,17 @@ class toastConfigurator:
 			self.config.set("toastMachine", "height", "490")
 		return (self.config.get("toastMachine", "width"), self.config.get("toastMachine","height"))
 	
+	### --- Set the size of the TM window
 	def setSize(self, width, height):
 		self.config.set("toastMachine", "width", width)
 		self.config.set("toastMachine", "height", height)
+	
+	### --- Get the wallpaper full path from config
+	def getWallpaper(self):
+		if not self.config.has_option("toastMachine", "wallpaper"):
+			self.config.set("toastMachine", "wallpaper", "default")
+		return self.config.get("toastMachine", "wallpaper")
+	
+	### --- Set the wallpaper full path
+	def setWallpaper(self, wallpaper):
+		self.config.set("toastMachine", "wallpaper", wallpaper)

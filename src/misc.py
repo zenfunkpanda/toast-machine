@@ -48,6 +48,8 @@ PATHS = {
 			'%s/../data/icons' % __base_path__],
 		'data': [
 			'%s/../data' % __base_path__],
+		'wallpapers': [
+			'%s/../data/wallpapers' % __base_path__],
 		'doc': [
 			'%s/../doc' % __base_path__,
 			'%s/share/doc/%s' % (sys.prefix, APP_NAME)]

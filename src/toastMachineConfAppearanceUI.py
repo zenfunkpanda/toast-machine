@@ -70,13 +70,16 @@ class toastMachineConfAppearanceUI:
 		self.updateEdgeLabel(self, None, None)
 		
 		a, b = self.config.getSize()
-		print gtk.gdk.screen_width(), gtk.gdk.screen_height()
 		self.widthSelector = self.wTree.get_widget("spinbutton1")
 		self.widthSelector.set_range(640.0, float(gtk.gdk.screen_width()))
 		self.widthSelector.set_value(float(a))
 		self.heightSelector = self.wTree.get_widget("spinbutton2")
 		self.heightSelector.set_range(480.0, float(gtk.gdk.screen_height()))
 		self.heightSelector.set_value(float(b))
+		
+		self.wallpaper = self.config.getWallpaper()
+		self.wallPaperName = self.wTree.get_widget("entry1")
+		self.wallPaperName.set_text(self.wallpaper.split("/")[-1:][0])
 
 	def updateEdgeLabel(self, widget, position, event):
 		position = self.selector._current
@@ -99,9 +102,36 @@ class toastMachineConfAppearanceUI:
 		elif position == ["TopLeft"]:
 			self.positionLabel.set_text(_("Top Left"))
 
+	def selectFile(self):
+		dialog = gtk.FileChooserDialog(_("Select Wallpaper"),
+                               None,
+                               gtk.FILE_CHOOSER_ACTION_OPEN,
+                               (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
+                                gtk.STOCK_OPEN, gtk.RESPONSE_OK))
+		dialog.set_default_response(gtk.RESPONSE_OK)
+		dialog.set_current_folder(misc.getPath("wallpapers",""))
+
+		filter = gtk.FileFilter()
+		filter.set_name("JPG/PNG/GIF")
+		filter.add_mime_type("image/jpeg")
+		filter.add_mime_type("image/png")
+		filter.add_mime_type("image/gif")
+		dialog.add_filter(filter)
+		
+		response = dialog.run()
+		
+		folder = None
+		if response == gtk.RESPONSE_OK:
+			folder = dialog.get_filename()
+		elif response == gtk.RESPONSE_CANCEL:
+			folder = None
+		dialog.destroy()
+		
+		return folder
+
 	def btn_wallpaper(self, widget):
-		print self.widthSelector.get_value()
-		print self.heightSelector.get_value()
+		self.wallpaper = self.selectFile()
+		self.wallPaperName.set_text(self.wallpaper.split("/")[-1:][0])
 	
 	def btn_cancel(self, widget):
 		print "TODO: Close"
@@ -112,8 +142,10 @@ class toastMachineConfAppearanceUI:
 	def btn_save(self, widget):
 		self.config.setPosition(self.selector._current[0])
 		self.config.setSize(self.widthSelector.get_value(), self.heightSelector.get_value())
+		self.config.setWallpaper(self.wallpaper)
 		self.config.commit()
 		print "TODO: Save"
+		print self.config.getWallpaper()
 	
 	def delete_event(self, widget, event):
 		print "TODO: Aggiungere conferma di uscita"

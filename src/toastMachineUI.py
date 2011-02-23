@@ -45,10 +45,11 @@ class toastMachineUI(object):
 		self.secure = misc.passwordChecker()
 		
 		if self.config.getWallpaper() != "default":
-			print "settare lo sfondo: %s" % self.config.getWallpaper()
+			#TODO: Find a less archeological and more efficient way
+			os.system("xsetbg -center -shrink '%s'" % self.config.getWallpaper())
 		else:
 			print "sfondo di default"
-			#misc.getPath("wallpapers","")
+			os.system("xsetbg -center -shrink '%s'" % misc.getPath("wallpapers","default.jpg"))
 		
 		gladeUI = misc.getPath('ui', 'toast-machine.glade')
 		self.wTree = gtk.glade.XML(gladeUI,"window1")
@@ -124,10 +125,10 @@ class toastMachineUI(object):
 		a,b = self.window.get_size()
 		if self.config.getPosition() == "Center":
 			self.window.set_gravity(gtk.gdk.GRAVITY_CENTER)
-			self.window.move(gtk.gdk.screen_width() / 2, gtk.gdk.screen_height() / 2 - b / 2)
+			self.window.move(gtk.gdk.screen_width() / 2 - a / 2, gtk.gdk.screen_height() / 2 - b / 2)
 		elif self.config.getPosition() == "Top":
 			self.window.set_gravity(gtk.gdk.GRAVITY_NORTH)
-			self.window.move(gtk.gdk.screen_width() / 2, 0)
+			self.window.move(gtk.gdk.screen_width() / 2 - a / 2, 0)
 		elif self.config.getPosition() == "TopRight":
 			self.window.set_gravity(gtk.gdk.GRAVITY_NORTH_EAST)
 			self.window.move(gtk.gdk.screen_width() , 0)
@@ -139,7 +140,7 @@ class toastMachineUI(object):
 			self.window.move(gtk.gdk.screen_width() , gtk.gdk.screen_height() - b)
 		elif self.config.getPosition() == "Bottom":
 			self.window.set_gravity(gtk.gdk.GRAVITY_SOUTH)
-			self.window.move(gtk.gdk.screen_width() / 2, gtk.gdk.screen_height() - b)
+			self.window.move(gtk.gdk.screen_width() / 2 -a / 2, gtk.gdk.screen_height() - b)
 		elif self.config.getPosition() == "BottomLeft":
 			self.window.set_gravity(gtk.gdk.GRAVITY_SOUTH_WEST)
 			self.window.move(0, gtk.gdk.screen_height() - b)

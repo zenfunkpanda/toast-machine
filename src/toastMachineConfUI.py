@@ -134,12 +134,14 @@ class toastMachineConfUI:
 			self.filetree.set_model(self.config.getListForTreeView())
 	
 	def btn_appereance(self, widget):
-		self.appearance.window.show()
-		print "TODO: show appereance window"			
+		#FIXME: saving in the appearance makes skip the save button on parent
+		#		Da togliere e sistemare in qualche cazzo di maniera
+		self.config.commit()
+		self.appearance.window.show()			
 
 	def btn_save(self, widget):
 		self.config.commit()
-		self.quit(self)
+		#self.quit(self)
 
 	def btn_cancel(self, widget):
 		sys.exit(255)

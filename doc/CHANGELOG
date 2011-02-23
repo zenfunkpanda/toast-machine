@@ -1,2 +1,7 @@
-* 0.1 (10/09/20010)
-	First beta Release (rev 50)
+* 0.2 (23/02/2011) (rev70)
+	- Some minor bug fixes
+	- Added the 'appearance' section in configuration
+	  to choose the window position and a background wallpaper
+
+* 0.1 (10/09/2010) (rev50)
+	First beta Release

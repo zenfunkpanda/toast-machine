@@ -274,8 +274,8 @@ class toastMachineUI(object):
 		self.ui_buttongroup.set_sensitive(True)			
 	
 	def btn_exit (self, widget):
-		#if self.secure.check() == 'ok':
-		#	self.quit()
+		if self.secure.check() == 'ok':
+			self.quit()
 		self.quit()
 		
 	def delete_event(self, widget, event):

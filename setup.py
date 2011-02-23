@@ -72,7 +72,7 @@ class InstallData(install_data):
 
 setup(
   name='Toast Machine',
-  version='0.1',
+  version='0.2',
   description='Self Service Distributor of Free Software',
   author='Giampaolo Bozzali',
   author_email='giampaolo.bozzali@gmail.com',
@@ -83,6 +83,7 @@ setup(
     ('share/xsessions', ['data/xsessions/toast-machine.desktop']),
     ('share/applications', ['data/toast-machine_conf.desktop']),
     ('share/toast-machine/data/icons', glob('data/icons/*')),
+    ('share/toast-machine/data/wallpapers', glob('data/wallpapers/*')),
     ('share/toast-machine/data/ui', glob('data/ui/*.glade')),
     ('share/doc/toast-machine', ['doc/README', 'doc/CHANGELOG', 'doc/THANKS']),
     ('share/toast-machine/src', glob('src/*.py'))

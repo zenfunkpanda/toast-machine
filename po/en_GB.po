@@ -8,38 +8,38 @@ msgstr ""
 "Project-Id-Version: toast-machine\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-02-23 14:18+0100\n"
-"PO-Revision-Date: 2010-10-07 22:07+0000\n"
+"PO-Revision-Date: 2011-03-04 17:53+0000\n"
 "Last-Translator: Giampaolo Bozzali <giampaolo.bozzali@gmail.com>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-24 05:35+0000\n"
+"X-Launchpad-Export-Date: 2011-03-05 05:53+0000\n"
 "X-Generator: Launchpad (build 12351)\n"
 
 #: ../data/ui/toast-machine-conf-appearance.glade.h:1
 msgid "Height"
-msgstr ""
+msgstr "Height"
 
 #: ../data/ui/toast-machine-conf-appearance.glade.h:2
 msgid "Positioning"
-msgstr ""
+msgstr "Positioning"
 
 #: ../data/ui/toast-machine-conf-appearance.glade.h:3
 msgid "Size"
-msgstr ""
+msgstr "Size"
 
 #: ../data/ui/toast-machine-conf-appearance.glade.h:4
 msgid "Toast Machine - Appearance"
-msgstr ""
+msgstr "Toast Machine - Appearance"
 
 #: ../data/ui/toast-machine-conf-appearance.glade.h:5
 msgid "Wallpaper"
-msgstr ""
+msgstr "Wallpaper"
 
 #: ../data/ui/toast-machine-conf-appearance.glade.h:6
 msgid "Width"
-msgstr ""
+msgstr "Width"
 
 #: ../data/ui/toast-machine-conf.glade.h:1
 msgid "Appereance..."
@@ -104,39 +104,39 @@ msgstr "No longer exists: %s"
 
 #: ../src/toastMachineConfAppearanceUI.py:76
 msgid "Centered"
-msgstr ""
+msgstr "Centered"
 
 #: ../src/toastMachineConfAppearanceUI.py:78
 msgid "Top"
-msgstr ""
+msgstr "Top"
 
 #: ../src/toastMachineConfAppearanceUI.py:80
 msgid "Top Right"
-msgstr ""
+msgstr "Top Right"
 
 #: ../src/toastMachineConfAppearanceUI.py:82
 msgid "Right"
-msgstr ""
+msgstr "Right"
 
 #: ../src/toastMachineConfAppearanceUI.py:84
 msgid "Bottom Right"
-msgstr ""
+msgstr "Bottom Right"
 
 #: ../src/toastMachineConfAppearanceUI.py:86
 msgid "Bottom"
-msgstr ""
+msgstr "Bottom"
 
 #: ../src/toastMachineConfAppearanceUI.py:88
 msgid "Bottom Left"
-msgstr ""
+msgstr "Bottom Left"
 
 #: ../src/toastMachineConfAppearanceUI.py:90
 msgid "Left"
-msgstr ""
+msgstr "Left"
 
 #: ../src/toastMachineConfAppearanceUI.py:92
 msgid "Top Left"
-msgstr ""
+msgstr "Top Left"
 
 #: ../src/toastMachineConfUI.py:64
 msgid "Search paths"

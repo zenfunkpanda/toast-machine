@@ -1,0 +1,189 @@
+# Turkish translation for toast-machine
+# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
+# This file is distributed under the same license as the toast-machine package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: toast-machine\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2011-02-23 14:18+0100\n"
+"PO-Revision-Date: 2013-01-21 01:40+0000\n"
+"Last-Translator: Volkan Gezer <Unknown>\n"
+"Language-Team: Turkish <tr@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-01-21 04:53+0000\n"
+"X-Generator: Launchpad (build 16430)\n"
+
+#: ../data/ui/toast-machine-conf-appearance.glade.h:1
+msgid "Height"
+msgstr "Yükseklik"
+
+#: ../data/ui/toast-machine-conf-appearance.glade.h:2
+msgid "Positioning"
+msgstr "Konumlandırma"
+
+#: ../data/ui/toast-machine-conf-appearance.glade.h:3
+msgid "Size"
+msgstr "Boyut"
+
+#: ../data/ui/toast-machine-conf-appearance.glade.h:4
+msgid "Toast Machine - Appearance"
+msgstr "Toast Machine - Görünüm"
+
+#: ../data/ui/toast-machine-conf-appearance.glade.h:5
+msgid "Wallpaper"
+msgstr "Duvarkağıdı"
+
+#: ../data/ui/toast-machine-conf-appearance.glade.h:6
+msgid "Width"
+msgstr "Genişlik"
+
+#: ../data/ui/toast-machine-conf.glade.h:1
+msgid "Appereance..."
+msgstr "Görünüm..."
+
+#: ../data/ui/toast-machine-conf.glade.h:2
+msgid "Description"
+msgstr "Açıklama"
+
+#: ../data/ui/toast-machine-conf.glade.h:3
+msgid "Toast Machine - Settings"
+msgstr "Toast Machine - Ayarlar"
+
+#: ../data/ui/toast-machine.glade.h:1
+msgid "Burn"
+msgstr "Yaz"
+
+#: ../data/ui/toast-machine.glade.h:2
+msgid "Burns the selected ISO image"
+msgstr "Seçili ISO kalıbını yazdırır"
+
+#: ../data/ui/toast-machine.glade.h:3
+msgid "Copy"
+msgstr "Kopyala"
+
+#: ../data/ui/toast-machine.glade.h:4
+msgid ""
+"Copy the selected file into an\n"
+"existing filesystem on removable media."
+msgstr ""
+"Seçili dosyayı çıkarılabilir ortamdaki\n"
+"mevcut dosya sistemine kopyalar."
+
+#: ../data/ui/toast-machine.glade.h:6
+msgid "Toast Machine"
+msgstr "Toast Machine"
+
+#: ../data/ui/toast-machine.glade.h:7
+msgid "Transfer"
+msgstr "Aktarım"
+
+#: ../data/ui/toast-machine.glade.h:8
+msgid ""
+"Transfer a bootable disk image\n"
+"onto a USB/SD removable media.\n"
+"\n"
+"All data on the media will be lost"
+msgstr ""
+"USB/SD taşınabilir ortamına\n"
+"başlatılabilir disk kalıbı aktar.\n"
+"\n"
+"Ortamdaki tüm veri kaybedilecek"
+
+#: ../src/misc.py:97
+msgid "Toast Machine user password request"
+msgstr "Toast Machine kullanıcı şifre isteği"
+
+#: ../src/toastConfigurator.py:107
+#, python-format
+msgid "No longer exists: %s"
+msgstr "Artık bulunmayan: %s"
+
+#: ../src/toastMachineConfAppearanceUI.py:76
+msgid "Centered"
+msgstr "Ortalanmış"
+
+#: ../src/toastMachineConfAppearanceUI.py:78
+msgid "Top"
+msgstr "Üst"
+
+#: ../src/toastMachineConfAppearanceUI.py:80
+msgid "Top Right"
+msgstr "Sağ Üst"
+
+#: ../src/toastMachineConfAppearanceUI.py:82
+msgid "Right"
+msgstr "Sağ"
+
+#: ../src/toastMachineConfAppearanceUI.py:84
+msgid "Bottom Right"
+msgstr "Sağ Alt"
+
+#: ../src/toastMachineConfAppearanceUI.py:86
+msgid "Bottom"
+msgstr "Alt"
+
+#: ../src/toastMachineConfAppearanceUI.py:88
+msgid "Bottom Left"
+msgstr "Sol Alt"
+
+#: ../src/toastMachineConfAppearanceUI.py:90
+msgid "Left"
+msgstr "Sol"
+
+#: ../src/toastMachineConfAppearanceUI.py:92
+msgid "Top Left"
+msgstr "Sol Üst"
+
+#: ../src/toastMachineConfUI.py:64
+msgid "Search paths"
+msgstr "Arama yolları"
+
+#: ../src/toastMachineConfUI.py:72 ../src/toastMachineUI.py:76
+msgid "Available resources"
+msgstr "Uygun kaynaklar"
+
+#: ../src/toastMachineConfUI.py:81
+msgid "Select path"
+msgstr "Yolu seç"
+
+#: ../src/toast-machine.py:58
+msgid "toast-machine: invalid option"
+msgstr "toast-machine: geçersiz seçenek"
+
+#: ../src/toastMachineUI.py:82
+msgid "Type"
+msgstr "Tür"
+
+#: ../src/toastMachineUI.py:132
+msgid "Insert a removable media"
+msgstr "Taşınabilir bir ortam takın"
+
+#: ../src/toastMachineUI.py:135
+#, python-format
+msgid "Current media: %s"
+msgstr "Güncel ortam: %s"
+
+#: ../src/toastMachineUI.py:155
+#, python-format
+msgid "%s of %s copied"
+msgstr "%s/%s kopyalandı"
+
+#: ../src/toastMachineUI.py:189
+msgid "Copying selected file on removable media"
+msgstr "Seçilen dosya taşınabilir ortama kopyalanıyor"
+
+#: ../src/toastMachineUI.py:196 ../src/toastMachineUI.py:229
+msgid "Finish! You can safely unplug your removable media"
+msgstr "Bitti! Taşınabilir ortamınızı güvenle çıkarabilirsiniz"
+
+#: ../src/toastMachineUI.py:222
+msgid "Transferring selected bootable image on removable media"
+msgstr "Seçilen başlatılabilir kalıp, taşınabilir ortama aktarılıyor"
+
+#: ../src/toastMachineUI.py:249
+msgid "Original idea by LUG Cremona"
+msgstr "Orijinal fikir LUG Cremona"

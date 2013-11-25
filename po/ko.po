@@ -8,26 +8,26 @@ msgstr ""
 "Project-Id-Version: toast-machine\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-02-23 14:18+0100\n"
-"PO-Revision-Date: 2013-11-19 07:53+0000\n"
+"PO-Revision-Date: 2013-11-24 23:34+0000\n"
 "Last-Translator: Litty <Unknown>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-11-20 05:32+0000\n"
+"X-Launchpad-Export-Date: 2013-11-25 05:48+0000\n"
 "X-Generator: Launchpad (build 16831)\n"
 
 #: ../data/ui/toast-machine-conf-appearance.glade.h:1
 msgid "Height"
-msgstr ""
+msgstr "높이"
 
 #: ../data/ui/toast-machine-conf-appearance.glade.h:2
 msgid "Positioning"
-msgstr ""
+msgstr "위치"
 
 #: ../data/ui/toast-machine-conf-appearance.glade.h:3
 msgid "Size"
-msgstr ""
+msgstr "크기"
 
 #: ../data/ui/toast-machine-conf-appearance.glade.h:4
 msgid "Toast Machine - Appearance"
@@ -35,7 +35,7 @@ msgstr ""
 
 #: ../data/ui/toast-machine-conf-appearance.glade.h:5
 msgid "Wallpaper"
-msgstr ""
+msgstr "배경 그림"
 
 #: ../data/ui/toast-machine-conf-appearance.glade.h:6
 msgid "Width"
@@ -47,7 +47,7 @@ msgstr ""
 
 #: ../data/ui/toast-machine-conf.glade.h:2
 msgid "Description"
-msgstr ""
+msgstr "설명"
 
 #: ../data/ui/toast-machine-conf.glade.h:3
 msgid "Toast Machine - Settings"
@@ -55,15 +55,15 @@ msgstr "토스트 머신 - 설정"
 
 #: ../data/ui/toast-machine.glade.h:1
 msgid "Burn"
-msgstr ""
+msgstr "굽기"
 
 #: ../data/ui/toast-machine.glade.h:2
 msgid "Burns the selected ISO image"
-msgstr ""
+msgstr "선택한 ISO 이미지를 기록합니다"
 
 #: ../data/ui/toast-machine.glade.h:3
 msgid "Copy"
-msgstr ""
+msgstr "복사"
 
 #: ../data/ui/toast-machine.glade.h:4
 msgid ""
@@ -77,7 +77,7 @@ msgstr "토스트 머신"
 
 #: ../data/ui/toast-machine.glade.h:7
 msgid "Transfer"
-msgstr ""
+msgstr "전송"
 
 #: ../data/ui/toast-machine.glade.h:8
 msgid ""
@@ -102,35 +102,35 @@ msgstr ""
 
 #: ../src/toastMachineConfAppearanceUI.py:78
 msgid "Top"
-msgstr ""
+msgstr "맨 위"
 
 #: ../src/toastMachineConfAppearanceUI.py:80
 msgid "Top Right"
-msgstr ""
+msgstr "우측 상단"
 
 #: ../src/toastMachineConfAppearanceUI.py:82
 msgid "Right"
-msgstr ""
+msgstr "오른쪽"
 
 #: ../src/toastMachineConfAppearanceUI.py:84
 msgid "Bottom Right"
-msgstr ""
+msgstr "우측 하단"
 
 #: ../src/toastMachineConfAppearanceUI.py:86
 msgid "Bottom"
-msgstr ""
+msgstr "맨 아래"
 
 #: ../src/toastMachineConfAppearanceUI.py:88
 msgid "Bottom Left"
-msgstr ""
+msgstr "좌측 하단"
 
 #: ../src/toastMachineConfAppearanceUI.py:90
 msgid "Left"
-msgstr ""
+msgstr "왼쪽"
 
 #: ../src/toastMachineConfAppearanceUI.py:92
 msgid "Top Left"
-msgstr ""
+msgstr "좌측 상단"
 
 #: ../src/toastMachineConfUI.py:64
 msgid "Search paths"
@@ -142,7 +142,7 @@ msgstr ""
 
 #: ../src/toastMachineConfUI.py:81
 msgid "Select path"
-msgstr ""
+msgstr "경로 선택"
 
 #: ../src/toast-machine.py:58
 msgid "toast-machine: invalid option"
@@ -168,7 +168,7 @@ msgstr ""
 
 #: ../src/toastMachineUI.py:189
 msgid "Copying selected file on removable media"
-msgstr ""
+msgstr "이동식 미디어에 위치한 선택된 파일 복사 중"
 
 #: ../src/toastMachineUI.py:196 ../src/toastMachineUI.py:229
 msgid "Finish! You can safely unplug your removable media"
@@ -176,7 +176,7 @@ msgstr "완료되었습니다! 이동식 미디어를 안전하게 제거할 수
 
 #: ../src/toastMachineUI.py:222
 msgid "Transferring selected bootable image on removable media"
-msgstr ""
+msgstr "이동식 미디어에 위치한 선택된 부팅 가능한 이미지 전송 중"
 
 #: ../src/toastMachineUI.py:249
 msgid "Original idea by LUG Cremona"

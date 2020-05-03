@@ -1,0 +1,191 @@
+# French translation for toast-machine
+# Copyright (c) 2020 Rosetta Contributors and Canonical Ltd 2020
+# This file is distributed under the same license as the toast-machine package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: toast-machine\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2011-02-23 14:18+0100\n"
+"PO-Revision-Date: 2020-05-02 15:27+0000\n"
+"Last-Translator: Jean-Marc <Unknown>\n"
+"Language-Team: French <fr@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2020-05-03 06:11+0000\n"
+"X-Generator: Launchpad (build fbdff7602bd10fb883bf7e2ddcc7fd5a16f60398)\n"
+
+#: ../data/ui/toast-machine-conf-appearance.glade.h:1
+msgid "Height"
+msgstr "Hauteur"
+
+#: ../data/ui/toast-machine-conf-appearance.glade.h:2
+msgid "Positioning"
+msgstr "Positionnement"
+
+#: ../data/ui/toast-machine-conf-appearance.glade.h:3
+msgid "Size"
+msgstr "Taille"
+
+#: ../data/ui/toast-machine-conf-appearance.glade.h:4
+msgid "Toast Machine - Appearance"
+msgstr "Toast Machine - Apparence"
+
+#: ../data/ui/toast-machine-conf-appearance.glade.h:5
+msgid "Wallpaper"
+msgstr "Fond d'écran"
+
+#: ../data/ui/toast-machine-conf-appearance.glade.h:6
+msgid "Width"
+msgstr "Largeur"
+
+#: ../data/ui/toast-machine-conf.glade.h:1
+msgid "Appereance..."
+msgstr "Apparence..."
+
+#: ../data/ui/toast-machine-conf.glade.h:2
+msgid "Description"
+msgstr "Description"
+
+#: ../data/ui/toast-machine-conf.glade.h:3
+msgid "Toast Machine - Settings"
+msgstr "Toast Machine - Paramètres"
+
+#: ../data/ui/toast-machine.glade.h:1
+msgid "Burn"
+msgstr "Graver"
+
+#: ../data/ui/toast-machine.glade.h:2
+msgid "Burns the selected ISO image"
+msgstr "Grave l'image ISO sélectionnée"
+
+#: ../data/ui/toast-machine.glade.h:3
+msgid "Copy"
+msgstr "Copier"
+
+#: ../data/ui/toast-machine.glade.h:4
+msgid ""
+"Copy the selected file into an\n"
+"existing filesystem on removable media."
+msgstr ""
+"Copiez le fichier sélectionné dans un\n"
+"système de fichiers existant sur support amovible."
+
+#: ../data/ui/toast-machine.glade.h:6
+msgid "Toast Machine"
+msgstr "Toast Machine"
+
+#: ../data/ui/toast-machine.glade.h:7
+msgid "Transfer"
+msgstr "Transférer"
+
+#: ../data/ui/toast-machine.glade.h:8
+msgid ""
+"Transfer a bootable disk image\n"
+"onto a USB/SD removable media.\n"
+"\n"
+"All data on the media will be lost"
+msgstr ""
+"Transférer une image disque amorçable\n"
+"sur un support amovible USB/SD.\n"
+"\n"
+"Toutes les données sur le support seront perdues"
+
+#: ../src/misc.py:97
+msgid "Toast Machine user password request"
+msgstr "Mot de passe utilisateur Toast Machine nécessaire"
+
+#: ../src/toastConfigurator.py:107
+#, python-format
+msgid "No longer exists: %s"
+msgstr "N'existe plus : %s"
+
+#: ../src/toastMachineConfAppearanceUI.py:76
+msgid "Centered"
+msgstr "Centré"
+
+#: ../src/toastMachineConfAppearanceUI.py:78
+msgid "Top"
+msgstr "Haut"
+
+#: ../src/toastMachineConfAppearanceUI.py:80
+msgid "Top Right"
+msgstr "En haut à droite"
+
+#: ../src/toastMachineConfAppearanceUI.py:82
+msgid "Right"
+msgstr "À droite"
+
+#: ../src/toastMachineConfAppearanceUI.py:84
+msgid "Bottom Right"
+msgstr "En bas à droite"
+
+#: ../src/toastMachineConfAppearanceUI.py:86
+msgid "Bottom"
+msgstr "En bas"
+
+#: ../src/toastMachineConfAppearanceUI.py:88
+msgid "Bottom Left"
+msgstr "En bas à gauche"
+
+#: ../src/toastMachineConfAppearanceUI.py:90
+msgid "Left"
+msgstr "À gauche"
+
+#: ../src/toastMachineConfAppearanceUI.py:92
+msgid "Top Left"
+msgstr "En haut à gauche"
+
+#: ../src/toastMachineConfUI.py:64
+msgid "Search paths"
+msgstr "Rechercher les chemins"
+
+#: ../src/toastMachineConfUI.py:72 ../src/toastMachineUI.py:76
+msgid "Available resources"
+msgstr "Ressources disponibles"
+
+#: ../src/toastMachineConfUI.py:81
+msgid "Select path"
+msgstr "Sélectionner un chemin"
+
+#: ../src/toast-machine.py:58
+msgid "toast-machine: invalid option"
+msgstr "toast-machine : option non valide"
+
+#: ../src/toastMachineUI.py:82
+msgid "Type"
+msgstr "Type"
+
+#: ../src/toastMachineUI.py:132
+msgid "Insert a removable media"
+msgstr "Insérer un support amovible"
+
+#: ../src/toastMachineUI.py:135
+#, python-format
+msgid "Current media: %s"
+msgstr "Support actuel : %s"
+
+#: ../src/toastMachineUI.py:155
+#, python-format
+msgid "%s of %s copied"
+msgstr "%s de %s copié"
+
+#: ../src/toastMachineUI.py:189
+msgid "Copying selected file on removable media"
+msgstr "Copie du fichier sélectionné sur un support amovible"
+
+#: ../src/toastMachineUI.py:196 ../src/toastMachineUI.py:229
+msgid "Finish! You can safely unplug your removable media"
+msgstr ""
+"Terminé ! Vous pouvez débrancher votre support amovible en toute sécurité"
+
+#: ../src/toastMachineUI.py:222
+msgid "Transferring selected bootable image on removable media"
+msgstr ""
+"Transfert de l'image de démarrage sélectionnée sur un support amovible"
+
+#: ../src/toastMachineUI.py:249
+msgid "Original idea by LUG Cremona"
+msgstr "Idée originale de LUG Cremona"

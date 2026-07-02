@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://jampibozz.io/img-post/toastmachine.png" alt="Toast Machine" width="600">
+  <img src="https://jampibozz.io/img-post/toastmachine.png" alt="Toast Machine">
 </p>
 
 # Toast Machine

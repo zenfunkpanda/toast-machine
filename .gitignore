@@ -1,0 +1,6 @@
+.codex/
+.agents/
+.bzrignore
+.svn/
+*.pyc
+.DS_Store
